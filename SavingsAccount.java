@@ -1,9 +1,11 @@
+import java.util.Currency;
+
 
 public class SavingsAccount extends Account {
     private static final double INTEREST_RATE = 0.02;
 
-    public SavingsAccount(String accountId, double initialBalance) {
-        super(accountId, initialBalance);
+    public SavingsAccount(double initialBalance, Currency currency) {
+        super(initialBalance, currency);
     }
 
     @Override

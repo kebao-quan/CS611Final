@@ -1,11 +1,12 @@
 public class DepositTransaction extends Transaction {
 
-    public DepositTransaction(String transactionId, Account account, double amount) {
-        super(transactionId, account, amount);
+    public DepositTransaction(Account account, double amount) {
+        super(account, amount);
     }
 
     @Override
-    public void execute() {
+    public void execute() throws InsufficientFundsException {
         this.account.deposit(this.amount);
+        isExecuted = true;
     }
 }

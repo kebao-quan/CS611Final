@@ -1,10 +1,10 @@
 import java.util.Currency;
 
 
-public class CheckingAccount extends Account {
-    private static final double TRANSACTION_FEE = 1.0;
+public class SecurityAccount extends Account{
+    private static final double TRANSACTION_FEE = 2.0;
 
-    public CheckingAccount(double initialBalance, Currency currency) {
+    public SecurityAccount(double initialBalance, Currency currency) {
         super(initialBalance, currency);
     }
 
