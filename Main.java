@@ -1,3 +1,4 @@
+import frontEnd.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -5,5 +6,7 @@ public class Main {
         //User user = Database.getInstance().getUser("abc");
         //String password = user.getPassword();
         //System.out.println(password);
+        mainGUI mainGUI = new mainGUI();
+        mainGUI.login.frame.setVisible(true);
     }
 }
