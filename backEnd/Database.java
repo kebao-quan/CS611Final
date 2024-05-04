@@ -1,5 +1,6 @@
 package backEnd;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
@@ -82,6 +83,10 @@ public class Database implements Serializable {
 
     public void addAccount(String username, Account account) {
         List<Account> userAccountList = userAccounts.get(username);
+        if (userAccountList == null) {
+            userAccountList = new ArrayList<>();
+            userAccounts.put(username, userAccountList);
+        }
         userAccountList.add(account);
         accounts.put(account.getAccountId(), account);
         persist();

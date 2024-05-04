@@ -51,6 +51,10 @@ public class App {
     public static void createAccount(String username, String accountType, double initialBalance, Currency currency) {
         AccountFactory accountFactory = new AccountFactory();
         Account account = accountFactory.createAccount(accountType, initialBalance, currency);
+        if (account == null) {
+            System.out.println("Invalid account type.");
+            return;
+        }
         Database.getInstance().addAccount(username, account);
     }
 

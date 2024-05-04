@@ -110,8 +110,11 @@ public class accountList extends JFrame {
 		String username = currentUser.getInstance().getUsername();
 		
 		List<Account> userAccounts = App.getAccounts(username);
+
+		
 		if (userAccounts != null)
 		{
+			System.out.println("num of accounts: " + userAccounts.size());
 			for(Account val : userAccounts)
 			listModel.addElement(val);
 		
