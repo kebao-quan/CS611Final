@@ -10,5 +10,7 @@ public class mainGUI {
 	public static accountList accountList = new accountList();
 	public static openAccount openAccount = new openAccount();
 	public static takeLoan takeLoan = new takeLoan();
+	public static allTransaction allTransaction = new allTransaction();
+	public static allUsers allUsers = new allUsers();
 
 }

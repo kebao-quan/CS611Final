@@ -29,7 +29,7 @@ public class userMenu extends JFrame {
         // TODO close account
         // check current accounts
         // transaction history
-        // stocks
+        // TODO stocks
         // loan
         
         JButton accountList = new JButton("Account List");

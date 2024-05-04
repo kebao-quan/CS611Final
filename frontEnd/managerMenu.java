@@ -38,7 +38,39 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
-                    mainGUI.userMenu.setVisible(false);					
+                    mainGUI.managerMenu.setVisible(false);					
+				}
+			}
+		});
+
+		JButton dailyTransaction = new JButton("Daily Transaction");
+        dailyTransaction.setBounds(400, 0, 200, 50);
+		panel.add(dailyTransaction);
+
+		dailyTransaction.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.allTransaction.isVisible())
+				{
+					mainGUI.allTransaction.setVisible(true);
+                    mainGUI.managerMenu.setVisible(false);					
+				}
+			}
+		});
+
+		JButton userList = new JButton("User List");
+        userList.setBounds(600, 0, 200, 50);
+		panel.add(userList);
+
+		userList.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.allUsers.isVisible())
+				{
+					mainGUI.allUsers.setVisible(true);
+                    mainGUI.managerMenu.setVisible(false);					
 				}
 			}
 		});
