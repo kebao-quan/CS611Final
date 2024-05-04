@@ -12,5 +12,5 @@ public class mainGUI {
 	public static takeLoan takeLoan = new takeLoan();
 	public static allTransaction allTransaction = new allTransaction();
 	public static allUsers allUsers = new allUsers();
-
+	public static register register = new register();
 }
