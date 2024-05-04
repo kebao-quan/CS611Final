@@ -1,10 +1,31 @@
 package frontEnd;
 
 public class currentUser {
-    public static String username = "";
+    private static currentUser myInstance;
 
-    public currentUser()
+    private String username = "";
+
+    private currentUser()
     {
 
+    }
+
+    public static currentUser getInstance()
+    {
+        if (myInstance == null) {
+            myInstance = new currentUser();
+         }
+   
+         return myInstance;
+    }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String name)
+    {
+        this.username = name;
     }
 }

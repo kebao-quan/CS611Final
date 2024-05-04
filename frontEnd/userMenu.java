@@ -44,7 +44,8 @@ public class userMenu extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
-                    mainGUI.userMenu.setVisible(false);					
+                    mainGUI.userMenu.setVisible(false);
+					mainGUI.accountList.updateList();					
 				}
 			}
 		});

@@ -81,7 +81,7 @@ public class Login {
 					return;
                 }
 				User user = App.getUserValidate(username, password);
-				currentUser.username = username;
+				currentUser.getInstance().setUsername(username);
 
                 if (user != null)
                 {

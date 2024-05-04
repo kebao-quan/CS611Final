@@ -47,6 +47,7 @@ public class accountList extends JFrame {
             {
 				if(!mainGUI.accountList.isVisible())
 				{
+					// TODO reload here
 					mainGUI.accountList.setVisible(true);
 				}
 			}
@@ -96,18 +97,18 @@ public class accountList extends JFrame {
 				}
 			}
 		});
+		updateList();
+    }
 
-
+	public void updateList()
+	{
 		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();
 		listAccount.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		listAccount.setBounds(0, 50, 950, 500);
 		panel.add(listAccount);
-
-
-
-
-		String username = currentUser.username;
+		String username = currentUser.getInstance().getUsername();
+		
 		List<Account> userAccounts = App.getAccounts(username);
 		if (userAccounts != null)
 		{
@@ -118,7 +119,5 @@ public class accountList extends JFrame {
 
 			listAccount.setViewportView(list);
 		}
-		
-		
-    }
+	}
 }

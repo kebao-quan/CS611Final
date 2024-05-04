@@ -45,7 +45,7 @@ public class openAccount extends JFrame {
 			public void actionPerformed(ActionEvent e) 
             {
                 //TODO add to account list/ database
-                // also should close this window on open click
+				mainGUI.openAccount.setVisible(false);
 			}
 		});
     }
