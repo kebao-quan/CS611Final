@@ -31,7 +31,7 @@ public class openAccount extends JFrame {
 		typeLabel.setBounds(400, 100, 100, 50);
 		panel.add(typeLabel);
 
-        String[] typeList = {"Checking", "Saving"};
+        String[] typeList = {"Checking", "Saving", "Securities"};
 		JComboBox<String> typeBox = new JComboBox<String>(typeList);
 		typeBox.setBounds(500, 110, 100, 30);
 		panel.add(typeBox);
