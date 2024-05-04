@@ -81,7 +81,7 @@ public class register {
 				else
 				{
 					User user = App.createUser(username, password);
-                    // TODO currentUser.username = username;
+                    currentUser.getInstance().setUsername(username);
 					if (user != null) 
 					{
 						frame.setVisible(false);
