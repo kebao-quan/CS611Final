@@ -62,6 +62,10 @@ public class Database implements Serializable {
         return stocks;
     }
 
+    public List<Account> getAccountsByUserID(String username) {
+        return userAccounts.get(username);
+    }
+
 
     /**
      * Return false if the user already exists

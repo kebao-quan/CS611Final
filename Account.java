@@ -25,6 +25,10 @@ public abstract class Account implements Serializable{
         return balance;
     }
 
+    public String getAccountType() {
+        return "Generic Account";
+    }
+
     public abstract void deposit(double amount);
     public abstract void withdraw(double amount) throws InsufficientFundsException;
 }

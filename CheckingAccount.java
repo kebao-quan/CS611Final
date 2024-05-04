@@ -3,6 +3,7 @@ import java.util.Currency;
 
 public class CheckingAccount extends Account {
     private static final double TRANSACTION_FEE = 1.0;
+    private static final String ACCOUNT_TYPE = "Checking";
 
     public CheckingAccount(double initialBalance, Currency currency) {
         super(initialBalance, currency);
@@ -19,5 +20,10 @@ public class CheckingAccount extends Account {
             throw new InsufficientFundsException("Not enough funds.");
         }
         this.balance -= (amount + TRANSACTION_FEE);
+    }
+
+    @Override
+    public String getAccountType() {
+        return ACCOUNT_TYPE;
     }
 }
