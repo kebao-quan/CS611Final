@@ -1,3 +1,4 @@
+package backEnd;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -60,6 +61,10 @@ public class Database implements Serializable {
 
     public Set<Stock> getStocks() {
         return stocks;
+    }
+
+    public List<Account> getAccountsByUserID(String username) {
+        return userAccounts.get(username);
     }
 
 

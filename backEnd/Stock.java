@@ -1,3 +1,4 @@
+package backEnd;
 import java.io.Serializable;
 
 public class Stock implements Serializable {

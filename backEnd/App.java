@@ -1,4 +1,7 @@
+package backEnd;
 import java.util.Currency;
+import java.util.List;
+
 
 /**
  * This class define the method for frontend to interact with the backend.
@@ -20,6 +23,10 @@ public class App {
             return user;
         }
         return null;
+    }
+
+    public static List<Account> getAccounts(String username) {
+        return Database.getInstance().getAccountsByUserID(username);
     }
 
     /**

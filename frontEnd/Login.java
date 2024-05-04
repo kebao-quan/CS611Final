@@ -9,6 +9,9 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import backEnd.App;
+import backEnd.User;
+
 public class Login {
 
 	public JFrame frame;
@@ -74,16 +77,18 @@ public class Login {
                 {
                     frame.setVisible(false);
                     mainGUI.managerMenu.setVisible(true);
+					return;
                 }
                 // TODO this is for regular users, placeholder
-                else if (true)
+				User user = App.getUserValidate(username, password);
+                if (user != null)
                 {
                     frame.setVisible(false);
                     mainGUI.userMenu.setVisible(true);
                 }
 				else
 				{
-                    // TODO some how display error
+					System.out.println("Invalid username or password");
 				}
 			}
 		});

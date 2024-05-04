@@ -1,10 +1,12 @@
+package backEnd;
 import java.util.Currency;
 
 
-public class CheckingAccount extends Account {
-    private static final double TRANSACTION_FEE = 1.0;
+public class SecurityAccount extends Account{
+    private static final double TRANSACTION_FEE = 2.0;
+    private static final String ACCOUNT_TYPE = "Security";
 
-    public CheckingAccount(double initialBalance, Currency currency) {
+    public SecurityAccount(double initialBalance, Currency currency) {
         super(initialBalance, currency);
     }
 
@@ -19,5 +21,10 @@ public class CheckingAccount extends Account {
             throw new InsufficientFundsException("Not enough funds.");
         }
         this.balance -= (amount + TRANSACTION_FEE);
+    }
+
+    @Override
+    public String getAccountType() {
+        return ACCOUNT_TYPE;
     }
 }

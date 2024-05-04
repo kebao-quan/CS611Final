@@ -1,3 +1,4 @@
+package backEnd;
 public class WithdrawalTransaction extends Transaction {
 
     public WithdrawalTransaction(Account account, double amount) {

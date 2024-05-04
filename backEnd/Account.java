@@ -1,3 +1,4 @@
+package backEnd;
 import java.io.Serializable;
 import java.util.Currency;
 import java.util.UUID;
@@ -23,6 +24,10 @@ public abstract class Account implements Serializable{
 
     public double getBalance() {
         return balance;
+    }
+
+    public String getAccountType() {
+        return "Generic Account";
     }
 
     public abstract void deposit(double amount);
