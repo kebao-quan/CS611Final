@@ -89,7 +89,7 @@ public class register {
 					} 
 					else 
 					{
-        			    JOptionPane.showMessageDialog(null, "Login Failed. Invalid Username/Password", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
+        			    JOptionPane.showMessageDialog(null, "Login Failed. Username already exists", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}
