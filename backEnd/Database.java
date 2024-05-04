@@ -110,7 +110,6 @@ public class Database implements Serializable {
             out.writeObject(Database.instance);
             out.close();
             fileOut.close();
-            System.out.println("Serialized data is saved in database.ser");
             return true;
         } catch (IOException i) {
             i.printStackTrace();
@@ -127,7 +126,6 @@ public class Database implements Serializable {
             Database.instance = db;
             in.close();
             fileIn.close();
-            System.out.println("Deserialized data is read from database.ser");
             return true;
         } catch(FileNotFoundException f) {
             System.out.println("Database file not found");

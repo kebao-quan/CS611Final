@@ -49,7 +49,6 @@ public class openAccount extends JFrame {
             {
                 //TODO add to account list/ database
 				mainGUI.openAccount.setVisible(false);
-				System.out.println("Opening account" + typeBox.getSelectedItem().toString());
 				App.createAccount(currentUser.getInstance().getUsername(), typeBox.getSelectedItem().toString(), 0, java.util.Currency.getInstance("USD"));
 			}
 		});
