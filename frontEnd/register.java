@@ -9,6 +9,9 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import backEnd.App;
+import backEnd.User;
+
 public class register {
 
 	public JFrame frame;
@@ -77,6 +80,16 @@ public class register {
 				else
 				{
                     // TODO register a new user 
+					User user = App.createUser(username, password);
+					if (user != null) 
+					{
+						frame.setVisible(false);
+						mainGUI.userMenu.setVisible(true);
+					} 
+					else 
+					{
+						// TODO display error message
+					}
 				}
 			}
 		});

@@ -85,6 +85,8 @@ public class Login {
                 {
                     frame.setVisible(false);
                     mainGUI.userMenu.setVisible(true);
+					String userId = user.getUserName();
+					App.getAccounts(userId);
                 }
 				else
 				{
