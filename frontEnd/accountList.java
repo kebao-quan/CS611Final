@@ -97,7 +97,6 @@ public class accountList extends JFrame {
 				}
 			}
 		});
-		updateList();
     }
 
 	public void updateList()
@@ -115,6 +114,7 @@ public class accountList extends JFrame {
 		
 		if (userAccounts != null)
 		{
+			System.out.println(username);
 			System.out.println("num of accounts: " + userAccounts.size());
 			for(Account val : userAccounts)
 			listModel.addElement(val);
@@ -122,6 +122,10 @@ public class accountList extends JFrame {
 			JList<Account> list = new JList<Account>(listModel);
 
 			listAccount.setViewportView(list);
+		}
+		else
+		{
+			System.out.println(username + " username");
 		}
 	}
 }
