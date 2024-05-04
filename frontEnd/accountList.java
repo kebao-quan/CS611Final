@@ -4,17 +4,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+
+import backEnd.App;
+import backEnd.User;
+import backEnd.Account;
 import javax.swing.DefaultListModel;
 
 public class accountList extends JFrame {
     
 	private JPanel panel;
-	public static DefaultListModel<String> arr = new DefaultListModel<String>();
+	public static DefaultListModel<Account> listModel = new DefaultListModel<Account>();
 
     public accountList()
     {
@@ -90,10 +97,27 @@ public class accountList extends JFrame {
 			}
 		});
 
+
+		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();
 		listAccount.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		listAccount.setBounds(0, 50, 950, 500);
 		panel.add(listAccount);
+
+
+
+
+		String username = currentUser.username;
+		List<Account> userAccounts = App.getAccounts(username);
+		if (userAccounts != null)
+		{
+			for(Account val : userAccounts)
+			listModel.addElement(val);
+		
+			JList<Account> list = new JList<Account>(listModel);
+
+			listAccount.setViewportView(list);
+		}
 		
 		
     }

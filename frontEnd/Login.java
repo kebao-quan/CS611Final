@@ -79,14 +79,13 @@ public class Login {
                     mainGUI.managerMenu.setVisible(true);
 					return;
                 }
-                // TODO this is for regular users, placeholder
 				User user = App.getUserValidate(username, password);
+				currentUser.username = username;
+
                 if (user != null)
                 {
                     frame.setVisible(false);
                     mainGUI.userMenu.setVisible(true);
-					String userId = user.getUserName();
-					App.getAccounts(userId);
                 }
 				else
 				{
