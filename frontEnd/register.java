@@ -2,6 +2,7 @@ package frontEnd;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -75,11 +76,10 @@ public class register {
                 
 				if ((username.equalsIgnoreCase("manager")))
                 {
-                    // TODO display cant register as manager
+                    JOptionPane.showMessageDialog(null, "Can not register as manager", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
                 }
 				else
 				{
-                    // TODO register a new user 
 					User user = App.createUser(username, password);
 					if (user != null) 
 					{
@@ -88,7 +88,7 @@ public class register {
 					} 
 					else 
 					{
-						// TODO display error message
+        			    JOptionPane.showMessageDialog(null, "Login Failed. Invalid Username/Password", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}

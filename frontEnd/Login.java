@@ -2,6 +2,7 @@ package frontEnd;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -89,7 +90,7 @@ public class Login {
                 }
 				else
 				{
-					System.out.println("Invalid username or password");
+        			JOptionPane.showMessageDialog(null, "Login Failed. Invalid Username/Password", "Login Failed", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
