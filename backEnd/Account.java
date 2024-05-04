@@ -35,9 +35,9 @@ public abstract class Account implements Serializable{
 
     @Override
     public String toString() {
-        return "Account ID: " + accountId + "\n" +
-                "Balance: " + balance + "\n" +
-                "Currency: " + currency + "\n" +
+        return "Account ID: " + accountId + "   " +
+                "Balance: " + balance + "   " +
+                "Currency: " + currency + "   " +
                 "Account Type: " + getAccountType();
     }
 }
