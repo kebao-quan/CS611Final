@@ -21,7 +21,7 @@ import javax.swing.DefaultListModel;
 public class accountList extends JFrame {
     
 	private JPanel panel;
-	public static DefaultListModel<Account> listModel = new DefaultListModel<Account>();
+	public static DefaultListModel<Account> listModel;
 
     public accountList()
     {
@@ -102,6 +102,7 @@ public class accountList extends JFrame {
 
 	public void updateList()
 	{
+		listModel = new DefaultListModel<Account>();
 		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();
 		listAccount.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
