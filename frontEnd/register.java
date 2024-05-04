@@ -9,16 +9,13 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import backEnd.App;
-import backEnd.User;
-
-public class Login {
+public class register {
 
 	public JFrame frame;
 	private JTextField usernameText;
 	private JPasswordField passwordText;
 
-	public Login() 
+	public register() 
     {
 		frame = new JFrame();
 		frame.setSize(1000, 600);
@@ -30,9 +27,9 @@ public class Login {
 		title.setBounds(0, 0, 200, 50);
 		frame.getContentPane().add(title);
 		
-		JLabel loginLabel = new JLabel("Login");
+		JLabel loginLabel = new JLabel("Register Account");
 		loginLabel.setFont(new Font("Arial", Font.PLAIN, 25));
-		loginLabel.setBounds(400, 100, 100, 50);
+		loginLabel.setBounds(400, 100, 200, 50);
 		frame.getContentPane().add(loginLabel);
 		
 		JLabel usernameLabel = new JLabel("Username:");
@@ -55,10 +52,10 @@ public class Login {
 		passwordText.setColumns(10);
 		
 
-		JButton loginButton = new JButton("Login");
-        loginButton.setBounds(400, 300, 100, 30);
-		frame.getContentPane().add(loginButton);
-		loginButton.addActionListener(new ActionListener() 
+		JButton registerButton = new JButton("Register");
+        registerButton.setBounds(400, 300, 100, 30);
+		frame.getContentPane().add(registerButton);
+		registerButton.addActionListener(new ActionListener() 
         {    
 			public void actionPerformed(ActionEvent e) 
             {
@@ -73,43 +70,15 @@ public class Login {
                 String password = sb.toString();
 
                 
-				if ((username.equalsIgnoreCase("manager") && (password.equalsIgnoreCase("manager"))))
+				if ((username.equalsIgnoreCase("manager")))
                 {
-                    frame.setVisible(false);
-                    mainGUI.managerMenu.setVisible(true);
-					return;
-                }
-                // TODO this is for regular users, placeholder
-				User user = App.getUserValidate(username, password);
-                if (user != null)
-                {
-                    frame.setVisible(false);
-                    mainGUI.userMenu.setVisible(true);
+                    // TODO display cant register as manager
                 }
 				else
 				{
-					System.out.println("Invalid username or password");
+                    // TODO register a new user 
 				}
 			}
 		});
-
-
-		JButton register = new JButton("Register");
-        register.setBounds(400, 350, 100, 30);
-		frame.getContentPane().add(register);
-
-		register.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.register.frame.isVisible())
-				{
-					mainGUI.register.frame.setVisible(true);
-                    frame.setVisible(false);
-				}
-			}
-		});
-		
-		
 	}
 }

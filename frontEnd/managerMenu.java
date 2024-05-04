@@ -18,7 +18,8 @@ public class managerMenu extends JFrame {
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
-		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		JLabel title = new JLabel("Bank ATM");
 		title.setFont(new Font("Arial", Font.PLAIN, 25));
 		title.setBounds(0, 0, 200, 50);
