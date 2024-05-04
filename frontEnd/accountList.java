@@ -47,9 +47,9 @@ public class accountList extends JFrame {
             {
 				if(!mainGUI.accountList.isVisible())
 				{
-					// TODO reload here
 					mainGUI.accountList.setVisible(true);
 				}
+				updateList();
 			}
 		});
 		
