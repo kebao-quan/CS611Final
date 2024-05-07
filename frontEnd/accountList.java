@@ -28,7 +28,7 @@ public class accountList extends JFrame {
     public accountList()
     {
         setTitle("Account List");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -85,30 +85,22 @@ public class accountList extends JFrame {
 			}
 		});
 
-        JButton loanButton = new JButton("Take Loan");
-        loanButton.setBounds(800, 0, 200, 50);
-		panel.add(loanButton);
-
-		loanButton.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.takeLoan.isVisible())
-				{
-					mainGUI.takeLoan.setVisible(true);
-				}
-			}
-		});
-
-
 		JButton select = new JButton("Details");
 		select.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) {
 				if (list != null)
 				{
-					JOptionPane.showConfirmDialog(panel, "You Selected : " + list.getSelectedValue(), "Display",
-					JOptionPane.PLAIN_MESSAGE);
+					if (list.getSelectedValue() != null)
+					{
+						currentUser.getInstance().setAccount(list.getSelectedValue());
+						mainGUI.accountList.setVisible(false);
+						mainGUI.accountDetails.setVisible(true);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Select an account", "No Selected Account", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
 				else
 				{
@@ -116,7 +108,7 @@ public class accountList extends JFrame {
 				}
 			}
 		});
-		select.setBounds(1000, 0, 200, 50);
+		select.setBounds(800, 0, 200, 50);
 		panel.add(select);
     }
 

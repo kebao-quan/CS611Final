@@ -13,4 +13,7 @@ public class mainGUI {
 	public static allTransaction allTransaction = new allTransaction();
 	public static allUsers allUsers = new allUsers();
 	public static register register = new register();
+	public static accountDetails accountDetails = new accountDetails();
+	public static withdraw withdraw = new withdraw();
+	public static deposite deposite = new deposite();
 }

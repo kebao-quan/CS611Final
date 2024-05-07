@@ -15,7 +15,7 @@ public class takeLoan extends JFrame {
     public takeLoan()
     {
         setTitle("Take Loan");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -42,19 +42,25 @@ public class takeLoan extends JFrame {
         JTextField collatName = new JTextField();
 		collatName.setBounds(500, 260, 100, 30);
 		panel.add(collatName);
-        
+
+        JLabel amountLabel = new JLabel("Cost");
+		amountLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+		amountLabel.setBounds(400, 300, 100, 50);
+		panel.add(amountLabel);
+
         JTextField collatAmount = new JTextField();
-		collatAmount.setBounds(600, 260, 100, 30);
+		collatAmount.setBounds(500, 310, 100, 30);
 		panel.add(collatAmount);
 
         JButton loanButton = new JButton("Take Loan");
-        loanButton.setBounds(400, 300, 100, 30);
+        loanButton.setBounds(400, 350, 100, 30);
 		panel.add(loanButton);
 
 		loanButton.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) 
             {
+				// check if collat amount is a number
                 //TODO loan db, also need to check if colat amount > loan ammount
 			}
 		});

@@ -8,12 +8,12 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class userMenu extends JFrame {
+public class accountDetails extends JFrame {
 	private JPanel panel;
 
-	public userMenu() 
+	public accountDetails() 
     {
-		setTitle("Menu");
+		setTitle("Account Details");
 		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
@@ -25,20 +25,6 @@ public class userMenu extends JFrame {
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-		// populate transaction history, all users, all transaction list
-		// interest
-		// securities account insides
-		// adding and withdraw from account, transfer from another account
-		// creating secruties account
-        // TODO close account
-        // TODO stocks
-        // loan
-
-
-		// manager side
-		// manger needs to add stock
-		// user needs to see stock list
-        
         JButton accountList = new JButton("Account List");
         accountList.setBounds(200, 0, 200, 50);
 		panel.add(accountList);
@@ -51,42 +37,54 @@ public class userMenu extends JFrame {
 				{
 					mainGUI.accountList.setVisible(true);
 					mainGUI.accountList.updateList();
-                    mainGUI.userMenu.setVisible(false);
+                    mainGUI.accountDetails.setVisible(false);
 				}
-
 			}
 		});
 		
-        JButton transactionHistory = new JButton("Transaction History");
-        transactionHistory.setBounds(400, 0, 200, 50);
-		panel.add(transactionHistory);
+        JButton deposite = new JButton("Deposit");
+        deposite.setBounds(400, 0, 200, 50);
+		panel.add(deposite);
 
-		transactionHistory.addActionListener(new ActionListener() 
+		deposite.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				if(!mainGUI.transactionHistory.isVisible())
+				if(!mainGUI.deposite.isVisible())
 				{
-					mainGUI.transactionHistory.setVisible(true);
+					mainGUI.deposite.setVisible(true);
 				}
 			}
 		});
 
-        JButton openAccount = new JButton("Open Account");
-        openAccount.setBounds(600, 0, 200, 50);
-		panel.add(openAccount);
+        JButton withdraw = new JButton("Withdraw");
+        withdraw.setBounds(600, 0, 200, 50);
+		panel.add(withdraw);
 
-		openAccount.addActionListener(new ActionListener() 
+		withdraw.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				if(!mainGUI.openAccount.isVisible())
+				if(!mainGUI.withdraw.isVisible())
 				{
-					mainGUI.openAccount.setVisible(true);
+					mainGUI.withdraw.setVisible(true);
 				}
 			}
 		});
 
+        JButton loanButton = new JButton("Take Loan");
+        loanButton.setBounds(800, 0, 200, 50);
+		panel.add(loanButton);
 
+		loanButton.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.takeLoan.isVisible())
+				{
+					mainGUI.takeLoan.setVisible(true);
+				}
+			}
+		});
 	}
 }
