@@ -16,7 +16,7 @@ public class transactionHistory extends JFrame {
     public transactionHistory()
     {
         setTitle("Transaction History");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);

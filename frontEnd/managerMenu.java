@@ -14,7 +14,7 @@ public class managerMenu extends JFrame {
 	public managerMenu() 
     {
 		setTitle("Menu");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);

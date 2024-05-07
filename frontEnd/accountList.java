@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -22,11 +23,12 @@ public class accountList extends JFrame {
     
 	private JPanel panel;
 	public static DefaultListModel<Account> listModel;
+	private JList<Account> list;
 
     public accountList()
     {
         setTitle("Account List");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -97,6 +99,25 @@ public class accountList extends JFrame {
 				}
 			}
 		});
+
+
+		JButton select = new JButton("Details");
+		select.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) {
+				if (list != null)
+				{
+					JOptionPane.showConfirmDialog(panel, "You Selected : " + list.getSelectedValue(), "Display",
+					JOptionPane.PLAIN_MESSAGE);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "No Available Accounts", "No Accounts", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
+		select.setBounds(1000, 0, 200, 50);
+		panel.add(select);
     }
 
 	public void updateList()
@@ -119,7 +140,7 @@ public class accountList extends JFrame {
 			for(Account val : userAccounts)
 			listModel.addElement(val);
 		
-			JList<Account> list = new JList<Account>(listModel);
+			list = new JList<Account>(listModel);
 
 			listAccount.setViewportView(list);
 		}
@@ -128,4 +149,6 @@ public class accountList extends JFrame {
 			System.out.println(username + " username");
 		}
 	}
+
+	
 }

@@ -16,7 +16,7 @@ public class allTransaction extends JFrame {
     public allTransaction()
     {
         setTitle("All Transaction");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);

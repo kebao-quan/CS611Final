@@ -15,7 +15,7 @@ public class takeLoan extends JFrame {
     public takeLoan()
     {
         setTitle("Take Loan");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);

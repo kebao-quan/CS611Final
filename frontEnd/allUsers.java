@@ -16,7 +16,7 @@ public class allUsers extends JFrame {
     public allUsers()
     {
         setTitle("All Users");
-		setSize(1000, 600);
+		setSize(1200, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
