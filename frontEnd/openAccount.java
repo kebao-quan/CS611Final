@@ -1,16 +1,20 @@
 package frontEnd;
 
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import backEnd.App;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import backEnd.App;
+import backEnd.Account;
+import backEnd.InsufficientFundsException;
+
 
 public class openAccount extends JFrame {
     
@@ -47,9 +51,26 @@ public class openAccount extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-                //TODO add to account list/ database
 				mainGUI.openAccount.setVisible(false);
-				App.createAccount(currentUser.getInstance().getUsername(), typeBox.getSelectedItem().toString(), 0, java.util.Currency.getInstance("USD"));
+
+				String accountType = (String) typeBox.getSelectedItem();
+				if (accountType.equals("Securities")) {
+					List<Account> accounts = App.getAccounts(currentUser.getInstance().getUsername());
+					for (Account account : accounts) {
+						if (account.getBalance() >= 1000) {
+							String securityAccountId = App.createAccount(currentUser.getInstance().getUsername(), accountType, 0, java.util.Currency.getInstance("USD"));
+							try {
+								App.transfer(account.getAccountId(), securityAccountId, 1000);
+							} catch ( InsufficientFundsException ex) {
+								System.out.println("Insufficient funds");
+							}
+							return;
+						}
+					}
+					System.out.println("Do not have an Account that meets the requirements(Balance >= 1000) to open a Securities Account.");
+				} else {
+					App.createAccount(currentUser.getInstance().getUsername(), accountType, 0, java.util.Currency.getInstance("USD"));
+				}
 			}
 		});
     }

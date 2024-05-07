@@ -54,14 +54,15 @@ public class App {
      * @param initialBalance The initial balance of the account
      * @param currency The currency of the account
      */
-    public static void createAccount(String username, String accountType, double initialBalance, Currency currency) {
+    public static String createAccount(String username, String accountType, double initialBalance, Currency currency) {
         AccountFactory accountFactory = new AccountFactory();
         Account account = accountFactory.createAccount(username, accountType, initialBalance, currency);
         if (account == null) {
             System.out.println("Invalid account type.");
-            return;
+            return null;
         }
         Database.getInstance().addAccount(username, account);
+        return account.getAccountId();
     }
 
     /**

@@ -10,6 +10,8 @@ public class TransferTransaction extends Transaction {
 
     public void execute() throws InsufficientFundsException {
         Database.getInstance().getAccount(accountId).withdraw(this.amount);
+        Database.persist();
+        
         Database.getInstance().getAccount(toAccountId).deposit(this.amount);
         isExecuted = true;
         Database.persist();
