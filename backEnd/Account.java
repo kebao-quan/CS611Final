@@ -10,14 +10,10 @@ public abstract class Account implements Serializable{
     protected double balance;
     protected Currency currency;
 
-    public Account(double initialBalance, Currency currency) {
+    public Account(String username, double initialBalance, Currency currency) {
         this.accountId = UUID.randomUUID().toString();
         this.balance = initialBalance;
         this.currency = currency;
-    }
-
-    public Account(String username, double initialBalance, Currency currency) {
-        this(initialBalance, currency);
         this.username = username;
     }
 

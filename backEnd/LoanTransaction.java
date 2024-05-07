@@ -1,12 +1,10 @@
 package backEnd;
 
 public class LoanTransaction extends Transaction{
-    private String accountId;
-    private double amount;
     private String collat;
     private double collatAmount;
-    private double interestRate;
-    private int term;
+    private double interestRate = 0.1;
+    private int term = 12;
     private double monthlyPayment;
     private double totalPayment;
     private boolean isExecuted = false;
@@ -19,15 +17,17 @@ public class LoanTransaction extends Transaction{
 
     public void execute() {
         Account account = Database.getInstance().getAccount(accountId);
-        String username = account.getUsername();
         account.deposit(this.amount);
+        Database.persist();
+
+        String username = account.getUsername();
         User user = Database.getInstance().getUser(username);
         Collateral collateral = new Collateral(collat, collatAmount);
         user.addCollateral(collateral);
         user.setDebt(user.getDebt() + this.amount);
-
         isExecuted = true;
         Database.persist();
+        
     }
 
     public double calculateMonthlyPayment() {

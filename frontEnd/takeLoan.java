@@ -64,8 +64,6 @@ public class takeLoan extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				// check if collat amount is a number
-                //TODO loan db, also need to check if colat amount > loan ammount
 				String accountId = currentUser.getInstance().getAccount();
 
 				String amount = loanAmmount.getText();
