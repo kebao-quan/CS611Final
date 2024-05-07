@@ -4,6 +4,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import backEnd.InsufficientFundsException;
+import backEnd.Transaction;
+import backEnd.WithdrawalTransaction;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -43,7 +48,21 @@ public class withdraw extends JFrame {
 			public void actionPerformed(ActionEvent e) 
             {
 				// check if withdraw amount is a number
-                //TODO loan db, also need to check if colat amount > loan ammount
+				String accountId = currentUser.getInstance().getAccount();
+				String amount = withdrawAmount.getText();
+				try {
+					double amountDouble = Double.parseDouble(amount);
+					Transaction transaction = new WithdrawalTransaction(accountId, amountDouble);
+					transaction.execute();
+					System.out.println("Withdrawn " + amountDouble + " from account " + accountId);
+				} catch (NumberFormatException ex) {
+					System.out.println("Invalid amount");
+					return;
+				} catch (InsufficientFundsException ex) {
+					System.out.println("Insufficient funds");
+					return;
+				}
+
 			}
 		});
     }

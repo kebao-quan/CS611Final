@@ -93,7 +93,8 @@ public class accountList extends JFrame {
 				{
 					if (list.getSelectedValue() != null)
 					{
-						currentUser.getInstance().setAccount(list.getSelectedValue());
+						currentUser.getInstance().setAccount(list.getSelectedValue().getAccountId());
+						System.out.println("Selected Account: " + currentUser.getInstance().getAccount());
 						mainGUI.accountList.setVisible(false);
 						mainGUI.accountDetails.setVisible(true);
 					}
@@ -121,14 +122,13 @@ public class accountList extends JFrame {
 		listAccount.setBounds(0, 50, 950, 500);
 		panel.add(listAccount);
 		String username = currentUser.getInstance().getUsername();
-		
 		List<Account> userAccounts = App.getAccounts(username);
 
 		
 		if (userAccounts != null)
 		{
-			System.out.println(username);
-			System.out.println("num of accounts: " + userAccounts.size());
+			//System.out.println(username);
+			//System.out.println("num of accounts: " + userAccounts.size());
 			for(Account val : userAccounts)
 			listModel.addElement(val);
 		

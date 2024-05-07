@@ -6,8 +6,8 @@ public class SavingsAccount extends Account {
     private static final double INTEREST_RATE = 0.02;
     private static final String ACCOUNT_TYPE = "Saving";
 
-    public SavingsAccount(double initialBalance, Currency currency) {
-        super(initialBalance, currency);
+    public SavingsAccount(String username, double initialBalance, Currency currency) {
+        super(username, initialBalance, currency);
     }
 
     @Override

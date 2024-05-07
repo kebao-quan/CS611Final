@@ -4,6 +4,8 @@ import java.util.Currency;
 import java.util.UUID;
 
 public abstract class Account implements Serializable{
+    protected static double TRANSACTION_FEE = 1.0;
+    protected String username;
     protected String accountId;
     protected double balance;
     protected Currency currency;
@@ -12,6 +14,19 @@ public abstract class Account implements Serializable{
         this.accountId = UUID.randomUUID().toString();
         this.balance = initialBalance;
         this.currency = currency;
+    }
+
+    public Account(String username, double initialBalance, Currency currency) {
+        this(initialBalance, currency);
+        this.username = username;
+    }
+
+    public static double getTransactionFee() {
+        return TRANSACTION_FEE;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getAccountId() {

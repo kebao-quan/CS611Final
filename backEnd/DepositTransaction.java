@@ -1,13 +1,14 @@
 package backEnd;
 public class DepositTransaction extends Transaction {
 
-    public DepositTransaction(Account account, double amount) {
-        super(account, amount);
+    public DepositTransaction(String accountId, double amount) {
+        super(accountId, amount);
     }
 
     @Override
-    public void execute() throws InsufficientFundsException {
-        this.account.deposit(this.amount);
+    public void execute() {
+        Database.getInstance().getAccount(accountId).deposit(this.amount);
         isExecuted = true;
+        Database.persist();
     }
 }

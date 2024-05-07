@@ -9,6 +9,10 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import backEnd.Transaction;
+import backEnd.App;
+import backEnd.LoanTransaction;
+
 public class takeLoan extends JFrame {
 	private JPanel panel;
 
@@ -62,6 +66,44 @@ public class takeLoan extends JFrame {
             {
 				// check if collat amount is a number
                 //TODO loan db, also need to check if colat amount > loan ammount
+				String accountId = currentUser.getInstance().getAccount();
+
+				String amount = loanAmmount.getText();
+				String collat = collatName.getText();
+				String collatAmmount = collatAmount.getText();
+
+				if (amount.isEmpty() || collat.isEmpty() || collatAmmount.isEmpty()) {
+					System.out.println("Invalid amount");
+					return;
+				}
+
+				double amountDouble;
+				double collatAmmountDouble;
+				try {
+					amountDouble = Double.parseDouble(amount);
+					collatAmmountDouble = Double.parseDouble(collatAmmount);
+				} catch (NumberFormatException ex) {
+					System.out.println("Invalid amount");
+					return;
+				}
+
+				if (amountDouble <= 100) {
+					System.out.println("Loan amount must be greater than 100");
+					return;
+				}
+
+				if (collatAmmountDouble <= 0) {
+					System.out.println("Collateral amount must be greater than 0");
+					return;
+				}
+
+				if (collatAmmountDouble < amountDouble) {
+					System.out.println("Collateral amount must be greater than loan amount");
+					return;
+				}
+
+				App.loan(accountId, amountDouble, collatAmmount, collatAmmountDouble);
+				System.out.println("Loan taken for " + amountDouble + " with collateral " + collat + " costing " + collatAmmountDouble);
 			}
 		});
     }

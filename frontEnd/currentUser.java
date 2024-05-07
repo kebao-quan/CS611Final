@@ -5,7 +5,7 @@ public class currentUser {
     private static currentUser myInstance;
 
     private String username = "";
-    private Account selectedAccount;
+    private String selectedAccountId;
     private currentUser()
     {
 
@@ -30,13 +30,13 @@ public class currentUser {
         this.username = name;
     }
 
-    public Account getAccount()
+    public String getAccount()
     {
-        return selectedAccount;
+        return selectedAccountId;
     }
 
-    public void setAccount(Account account)
+    public void setAccount(String account)
     {
-        this.selectedAccount= account;
+        this.selectedAccountId = account;
     }
 }

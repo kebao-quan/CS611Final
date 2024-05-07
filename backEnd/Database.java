@@ -94,6 +94,10 @@ public class Database implements Serializable {
 
     public void addTransaction(String AccountID, Transaction transaction) {
         List<Transaction> accountTransactionsList = accountTransactions.get(AccountID);
+        if (accountTransactionsList == null) {
+            accountTransactionsList = new ArrayList<>();
+            accountTransactions.put(AccountID, accountTransactionsList);
+        }
         accountTransactionsList.add(transaction);
         transactions.add(transaction);
         persist();

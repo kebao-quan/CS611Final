@@ -4,6 +4,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import backEnd.Account;
+import backEnd.App;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -42,8 +46,23 @@ public class deposite extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				// check if depo amount is a number
+				// check if depo amount is a double
                 //TODO put in db
+				String accountId = currentUser.getInstance().getAccount();
+				String amount = withdrawAmount.getText();
+				try {
+					Double.parseDouble(amount);
+				} catch (NumberFormatException ex) {
+					System.out.println("Invalid amount");
+					return;
+				}
+				double amountDouble = Double.parseDouble(amount);
+				if (amountDouble <= Account.getTransactionFee()) {
+					System.out.println("Invalid amount");
+					return;
+				}
+				App.deposit(accountId, amountDouble);
+				System.out.println("Deposited " + amount + " to account " + accountId);
 			}
 		});
     }

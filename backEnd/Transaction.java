@@ -8,14 +8,14 @@ public abstract class Transaction implements Serializable {
     protected String transactionId;
     protected Date transactionDate;
     protected double amount;
-    protected Account account;
+    protected String accountId;
     protected Boolean isExecuted = false;
 
-    public Transaction(Account account, double amount) {
+    public Transaction(String accountId, double amount) {
         this.transactionId = UUID.randomUUID().toString();
         this.transactionDate = new Date(); // Current date and time
         this.amount = amount;
-        this.account = account;
+        this.accountId = accountId;
     }
 
     // Abstract method to execute the transaction
@@ -34,14 +34,14 @@ public abstract class Transaction implements Serializable {
         return amount;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getAccount() {
+        return accountId;
     }
 
     public String toString() {
         return "Transaction ID: " + transactionId + "\n" +
                 "Transaction Date: " + transactionDate + "\n" +
                 "Amount: " + amount + "\n" +
-                "Account ID: " + account.accountId;
+                "Account ID: " + accountId;
     }
 }

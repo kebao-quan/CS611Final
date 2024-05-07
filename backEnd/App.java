@@ -25,6 +25,12 @@ public class App {
         return null;
     }
 
+    /**
+     * Get the accounts of the user with the given username.
+     * 
+     * @param username The username of the user
+     * @return The list of accounts of the user
+     */
     public static List<Account> getAccounts(String username) {
         return Database.getInstance().getAccountsByUserID(username);
     }
@@ -50,7 +56,7 @@ public class App {
      */
     public static void createAccount(String username, String accountType, double initialBalance, Currency currency) {
         AccountFactory accountFactory = new AccountFactory();
-        Account account = accountFactory.createAccount(accountType, initialBalance, currency);
+        Account account = accountFactory.createAccount(username, accountType, initialBalance, currency);
         if (account == null) {
             System.out.println("Invalid account type.");
             return;
@@ -64,15 +70,17 @@ public class App {
      * @param accountId The ID of the account
      * @param amount The amount to deposit
      */
-    public static void deposit(String accountId, double amount) throws InsufficientFundsException {
+    public static void deposit(String accountId, double amount) {
         if (amount <= 0) {
             return;
         }
-        Account account = Database.getInstance().getAccount(accountId);
-        Transaction transaction = new DepositTransaction(account, amount);
+        Transaction transaction = new DepositTransaction(accountId, amount);
         Database.getInstance().addTransaction(accountId, transaction);
-        transaction.execute();
-        Database.persist();
+        try {
+            transaction.execute();
+        } catch (InsufficientFundsException e) {
+            // This should not happen
+        }
     }
 
 
@@ -84,11 +92,9 @@ public class App {
      * @throws InsufficientFundsException If the account does not have enough balance to withdraw
      */
     public static void withdraw(String accountId, double amount) throws InsufficientFundsException {
-        Account account = Database.getInstance().getAccount(accountId);
-        Transaction transaction = new WithdrawalTransaction(account, amount);
-        Database.getInstance().addTransaction(account.getAccountId(), transaction);
+        Transaction transaction = new WithdrawalTransaction(accountId, amount);
+        Database.getInstance().addTransaction(accountId, transaction);
         transaction.execute();
-        Database.persist();
     }
 
 
@@ -101,12 +107,29 @@ public class App {
      * @throws InsufficientFundsException If the source account does not have enough balance to transfer
      */
     public static void transfer(String sourceAccountId, String destinationAccountId, double amount) throws InsufficientFundsException {
-        Account sourceAccount = Database.getInstance().getAccount(sourceAccountId);
-        Account destinationAccount = Database.getInstance().getAccount(destinationAccountId);
-        Transaction transaction = new TransferTransaction(sourceAccount, destinationAccount, amount);
+        Transaction transaction = new TransferTransaction(sourceAccountId, destinationAccountId, amount);
         Database.getInstance().addTransaction(sourceAccountId, transaction);
         Database.getInstance().addTransaction(destinationAccountId, transaction);
         transaction.execute();
+        Database.persist();
+    }
+
+    /**
+     * Loan the given amount to the account with the given account ID.
+     * 
+     * @param accountId The ID of the account
+     * @param amount The amount to loan
+     * @param collat The collateral of the loan
+     * @param collatValue The value of the collateral
+     */
+    public static void loan(String accountId, double amount, String collat, double collatValue) {
+        Transaction transaction = new LoanTransaction(accountId, amount, collat, collatValue);
+        Database.getInstance().addTransaction(accountId, transaction);
+        try {
+            transaction.execute();
+        } catch ( InsufficientFundsException e ) {
+            // This should not happen
+        }
         Database.persist();
     }
     

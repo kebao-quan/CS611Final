@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String userName = "";
     private String password = "";
+    private double debt = 0;
     private List<Collateral> collaterals = new ArrayList<Collateral>();
 
     public User(String userName, String password) {
@@ -20,5 +21,21 @@ public class User implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public double getDebt() {
+        return debt;
+    }
+
+    public void setDebt(double debt) {
+        this.debt = debt;
+    }
+
+    public List<Collateral> getCollaterals() {
+        return collaterals;
+    }
+
+    public void addCollateral(Collateral collateral) {
+        collaterals.add(collateral);
     }
 }

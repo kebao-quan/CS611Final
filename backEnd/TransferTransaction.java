@@ -1,16 +1,17 @@
 package backEnd;
 public class TransferTransaction extends Transaction {
-    private Account toAccount;
+    private String toAccountId;
 
-    public TransferTransaction(Account fromAccount, Account toAccount, double amount) {
-        super(fromAccount, amount);
-        this.toAccount = toAccount;
+    public TransferTransaction(String fromAccountId, String toAccountId, double amount) {
+        super(fromAccountId, amount);
+        this.toAccountId = toAccountId;
         this.amount = amount;
     }
 
     public void execute() throws InsufficientFundsException {
-        this.account.withdraw(this.amount);
-        this.toAccount.deposit(this.amount);
+        Database.getInstance().getAccount(accountId).withdraw(this.amount);
+        Database.getInstance().getAccount(toAccountId).deposit(this.amount);
         isExecuted = true;
+        Database.persist();
     }
 }

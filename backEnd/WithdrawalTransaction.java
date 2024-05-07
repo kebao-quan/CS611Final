@@ -1,13 +1,13 @@
 package backEnd;
 public class WithdrawalTransaction extends Transaction {
-
-    public WithdrawalTransaction(Account account, double amount) {
-        super(account, amount);
+    public WithdrawalTransaction(String accountId, double amount) {
+        super(accountId, amount);
     }
 
     @Override
     public void execute() throws InsufficientFundsException {
-        this.account.withdraw(this.amount);
+        Database.getInstance().getAccount(accountId).withdraw(this.amount);
         isExecuted = true;
+        Database.persist();
     }
 }

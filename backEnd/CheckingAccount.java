@@ -3,11 +3,10 @@ import java.util.Currency;
 
 
 public class CheckingAccount extends Account {
-    private static final double TRANSACTION_FEE = 1.0;
     private static final String ACCOUNT_TYPE = "Checking";
 
-    public CheckingAccount(double initialBalance, Currency currency) {
-        super(initialBalance, currency);
+    public CheckingAccount(String username, double initialBalance, Currency currency) {
+        super(username, initialBalance, currency);
     }
 
     @Override

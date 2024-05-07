@@ -1,25 +1,31 @@
 package backEnd;
 
-public class LoanTransaction {
-    private Account account;
+public class LoanTransaction extends Transaction{
+    private String accountId;
     private double amount;
+    private String collat;
+    private double collatAmount;
     private double interestRate;
     private int term;
     private double monthlyPayment;
     private double totalPayment;
     private boolean isExecuted = false;
 
-    public LoanTransaction(Account account, double amount, double interestRate, int term) {
-        this.account = account;
-        this.amount = amount;
-        this.interestRate = interestRate;
-        this.term = term;
+    public LoanTransaction(String accountId, double amount, String collat, double collatAmount) {
+        super(accountId, amount);
+        this.collat = collat;
+        this.collatAmount = collatAmount;
     }
 
     public void execute() {
-        this.monthlyPayment = calculateMonthlyPayment();
-        this.totalPayment = calculateTotalPayment();
-        this.account.deposit(this.amount);
+        Account account = Database.getInstance().getAccount(accountId);
+        String username = account.getUsername();
+        account.deposit(this.amount);
+        User user = Database.getInstance().getUser(username);
+        Collateral collateral = new Collateral(collat, collatAmount);
+        user.addCollateral(collateral);
+        user.setDebt(user.getDebt() + this.amount);
+
         isExecuted = true;
         Database.persist();
     }
