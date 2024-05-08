@@ -19,14 +19,13 @@ public class stock extends JFrame {
 		setContentPane(panel);
 		panel.setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        currentUser user = currentUser.getInstance();
 
 		JLabel title = new JLabel("Bank ATM");
 		title.setFont(new Font("Arial", Font.PLAIN, 25));
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-        JButton accountList = new JButton("Stock");
+		JButton accountList = new JButton("Account List");
         accountList.setBounds(200, 0, 200, 50);
 		panel.add(accountList);
 
@@ -37,8 +36,25 @@ public class stock extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
-                    mainGUI.accountDetails.setVisible(false);
+                    mainGUI.stock.setVisible(false);
                     mainGUI.accountList.updateList();
+				}
+			}
+		});
+
+		JButton stockList = new JButton("Stock List");
+        stockList.setBounds(200, 0, 200, 50);
+		panel.add(stockList);
+
+		stockList.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.stockList.isVisible())
+				{
+					mainGUI.stockList.setVisible(true);
+                    mainGUI.stock.setVisible(false);
+                    mainGUI.stockList.updateList();
 				}
 			}
 		});

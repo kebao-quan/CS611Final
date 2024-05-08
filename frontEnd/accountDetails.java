@@ -116,6 +116,7 @@ public class accountDetails extends JFrame {
 				if(!mainGUI.stock.isVisible())
 				{
 					mainGUI.stock.setVisible(true);
+                    mainGUI.accountDetails.setVisible(false);
 				}
 			}
 		});

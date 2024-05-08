@@ -18,4 +18,6 @@ public class mainGUI {
 	public static deposite deposite = new deposite();
 	public static stock stock = new stock();
 	public static managerStockMenu managerStockMenu = new managerStockMenu();
+	public static stockList stockList = new stockList();
+	
 }
