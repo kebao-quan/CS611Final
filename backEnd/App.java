@@ -47,6 +47,10 @@ public class App {
         return Database.getInstance().getAllTransactions();
     }
 
+    public static List<Transaction> getUserTransactions(String username) {
+        return Database.getInstance().getTransactions(username);
+    }
+
     /**
      * Create a user with the given username and password.
      * 
