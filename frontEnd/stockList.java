@@ -76,7 +76,7 @@ public class stockList extends JFrame {
 		});
 
         JButton backButton = new JButton("Back");
-        backButton.setBounds(600, 0, 200, 50);
+        backButton.setBounds(800, 0, 200, 50);
 		panel.add(backButton);
 
 		backButton.addActionListener(new ActionListener() 

@@ -18,8 +18,6 @@ public class managerStockMenu extends JFrame {
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        currentUser user = currentUser.getInstance();
 
 		JLabel title = new JLabel("Bank ATM");
 		title.setFont(new Font("Arial", Font.PLAIN, 25));

@@ -70,7 +70,7 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.stock.isVisible())
 				{
 					mainGUI.managerStockMenu.setVisible(true);
-					
+
 				}
 			}
 		});
