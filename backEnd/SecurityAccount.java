@@ -1,13 +1,23 @@
 package backEnd;
+
+
 import java.util.Currency;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class SecurityAccount extends Account{
     private static final double TRANSACTION_FEE = 2.0;
     private static final String ACCOUNT_TYPE = "Securities";
+    private List<Stock> stocks;
 
     public SecurityAccount(String username, double initialBalance, Currency currency) {
         super(username, initialBalance, currency);
+        stocks = new ArrayList<>();
+    }
+
+    public void addStock(Stock stock) {
+        stocks.add(stock);
     }
 
     @Override

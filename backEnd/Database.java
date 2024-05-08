@@ -27,7 +27,7 @@ public class Database implements Serializable {
     // Database tables
     private Map<String, User>               users;                      // username -> User
     private Map<String, List<Account>>      userAccounts;               // username -> List<Account>
-    private Map<String, List<Stock>>        userStocks;                 // username -> List<Stock>
+    private Map<String, List<Stock>>        accountStocks;              // accountId -> List<Stock>
     private Map<String, List<Transaction>>  accountTransactions;        // accountId -> List<Transaction>
     private Map<String, Account>            accounts;                   // accountId -> Account
     private Set<Transaction>                transactions;               // List of all transactions
@@ -36,7 +36,7 @@ public class Database implements Serializable {
     private Database() {
         users                   = new HashMap<>();
         userAccounts            = new HashMap<>();
-        userStocks              = new HashMap<>();
+        accountStocks           = new HashMap<>();
         accountTransactions     = new HashMap<>();
         accounts                = new HashMap<>();
         transactions            = new HashSet<>();
@@ -90,14 +90,19 @@ public class Database implements Serializable {
         return stocks;
     }
 
-    public List<Stock> getStocks(String username) {
-        List<Stock> userStocksList = userStocks.get(username);
-        for (Stock stock : stocks) {
-            if (stock.getOwner().equals(username)) {
-                userStocksList.add(stock);
-            }
-        }
+    public List<Stock> getStocks(String accountId) {
+        List<Stock> userStocksList = accountStocks.get(accountId);
         return userStocksList;
+    }
+
+    public void accountBuyStock(String accountId, Stock stock, int quantity) {
+        List<Stock> stocksList = accountStocks.get(accountId);
+
+        // create a copy of stock
+        Stock stock_copy = new Stock(stock.getSymbol(), stock.getName(), stock.getPrice());
+        stock_copy.setQuantity(quantity);
+        stocksList.add(stock_copy);
+        persist();
     }
 
     public List<Account> getAccountsByUserID(String username) {
@@ -132,8 +137,6 @@ public class Database implements Serializable {
 
         List<Account> userAccountList = new ArrayList<>();
         userAccounts.put(userName, userAccountList);
-        List<Stock> userStockList = new ArrayList<>();
-        userStocks.put(userName, userStockList);
         persist();
         return user;
     }
@@ -149,6 +152,7 @@ public class Database implements Serializable {
         
         List<Transaction> accountTransactionsList = new ArrayList<>();
         accountTransactions.put(account.getAccountId(), accountTransactionsList);
+        
 
         persist();
     }

@@ -9,10 +9,10 @@ package backEnd;
 import java.io.Serializable;
 
 public class Stock implements Serializable {
-    String ownerId = "";
     String symbol = "";
     String name = "";
     double price = 0.0;
+    int quantity = 1;
 
     double boughtPrice = 0.0;
 
@@ -34,20 +34,20 @@ public class Stock implements Serializable {
         return price;
     }
 
-    public String getOwner() {
-        return ownerId;
+    public int getQuantity() {
+        return quantity;
     }
 
     public double getBoughtPrice() {
         return boughtPrice;
     }
 
-    public void setOwner(String username) {
-        this.ownerId = username;
-    }
-
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setBoughtPrice(double boughtPrice) {
@@ -55,7 +55,7 @@ public class Stock implements Serializable {
     }
 
     public double calculateProfit() {
-        return price - boughtPrice;
+        return (price - boughtPrice) * quantity;
     }
 
     @Override

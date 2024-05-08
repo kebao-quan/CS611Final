@@ -55,8 +55,12 @@ public class App {
         return List.copyOf(stocks);
     }
 
+    public static void accountBuyStock(String accountId, Stock stock, int quantity) {
+        Database.getInstance().accountBuyStock(accountId, stock, quantity);
+    }
 
-    
+
+
     /**
      * Add a stock with the given symbol, name and price to the database.
      * 

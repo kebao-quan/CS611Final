@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import backEnd.App;
 import backEnd.InsufficientFundsException;
 import backEnd.Transaction;
 import backEnd.WithdrawalTransaction;
@@ -15,6 +16,9 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+
+import backEnd.Stock;
 
 public class invest extends JFrame {
 	private JPanel panel;
@@ -50,7 +54,22 @@ public class invest extends JFrame {
 			public void actionPerformed(ActionEvent e) 
             {
 				// gets stock
-                currentUser.getInstance().getStock();
+                Stock stock = currentUser.getInstance().getStock();
+				String amount = investAmount.getText();
+				try {
+					Double.parseDouble(amount);
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+				double amountDouble = Double.parseDouble(amount);
+				if (amountDouble < stock.getPrice()) {
+					JOptionPane.showMessageDialog(null, "Please enter amount that is greater than the stock price", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+				int quantity = (int) (amountDouble / stock.getPrice());
+				String accountId = currentUser.getInstance().getAccount();
+				App.accountBuyStock(accountId, stock, quantity);
                 // lets user invest in a stock
                 // check if invest amount is right
 			}
