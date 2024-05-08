@@ -7,6 +7,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -67,6 +69,7 @@ public class openAccount extends JFrame {
 							return;
 						}
 					}
+					JOptionPane.showMessageDialog(null, "Do not have an Account that meets the requirements(Balance >= 1000) to open a Securities Account.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
 					System.out.println("Do not have an Account that meets the requirements(Balance >= 1000) to open a Securities Account.");
 				} else {
 					App.createAccount(currentUser.getInstance().getUsername(), accountType, 0, java.util.Currency.getInstance("USD"));
