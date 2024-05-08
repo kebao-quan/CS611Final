@@ -19,5 +19,8 @@ public class mainGUI {
 	public static stock stock = new stock();
 	public static managerStockMenu managerStockMenu = new managerStockMenu();
 	public static stockList stockList = new stockList();
+	public static invest invest = new invest();
+	public static addStock addStock = new addStock();
+	public static managerStockList managerStockList = new managerStockList();
 	
 }

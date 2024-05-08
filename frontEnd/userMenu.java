@@ -25,15 +25,13 @@ public class userMenu extends JFrame {
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-		// populate transaction history, all users, all transaction list, allTransactions.java, allUsers.java, transactionHistory.java
-		// securities account insides, accountDetails.java
         // TODO close account
         // TODO stocks, accountDetails.java to check what account type the user has, stock.java for rest
 			// currencies?
+		// transfer money
 
 		// manager side 
 		// manger needs to add stock
-		// user needs to see stock list
         
         JButton accountList = new JButton("Account List");
         accountList.setBounds(200, 0, 200, 50);

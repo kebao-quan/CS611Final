@@ -26,19 +26,32 @@ public class managerStockMenu extends JFrame {
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-        JButton accountList = new JButton("Stock");
-        accountList.setBounds(200, 0, 200, 50);
-		panel.add(accountList);
+        JButton stockList = new JButton("Stock List");
+        stockList.setBounds(200, 0, 200, 50);
+		panel.add(stockList);
 
-		accountList.addActionListener(new ActionListener() 
+		stockList.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				if(!mainGUI.accountList.isVisible())
+				if(!mainGUI.managerStockList.isVisible())
 				{
-					mainGUI.accountList.setVisible(true);
-                    mainGUI.accountDetails.setVisible(false);
-                    mainGUI.accountList.updateList();
+					mainGUI.managerStockList.setVisible(true);
+					mainGUI.managerStockList.updateList();
+				}
+			}
+		});
+		
+        JButton addStock = new JButton("Add Stock");
+        addStock.setBounds(400, 0, 200, 50);
+		panel.add(addStock);
+		addStock.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.addStock.isVisible())
+				{
+					mainGUI.addStock.setVisible(true);
 				}
 			}
 		});

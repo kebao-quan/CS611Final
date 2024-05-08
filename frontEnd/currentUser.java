@@ -1,11 +1,17 @@
+/*
+ * class for keeping track of the current user
+ */
 package frontEnd;
-import backEnd.Account;
+
+import backEnd.Stock;
 
 public class currentUser {
     private static currentUser myInstance;
 
     private String username = "";
     private String selectedAccountId;
+    private Stock selectedStock;
+
     private currentUser()
     {
 
@@ -38,5 +44,15 @@ public class currentUser {
     public void setAccount(String account)
     {
         this.selectedAccountId = account;
+    }
+
+    public Stock getStock()
+    {
+        return selectedStock;
+    }
+
+    public void setStock(Stock stock)
+    {
+        this.selectedStock = stock;
     }
 }

@@ -20,7 +20,7 @@ import backEnd.Account;
 import backEnd.Stock;
 import javax.swing.DefaultListModel;
 
-public class stockList extends JFrame {
+public class managerStockList extends JFrame {
     
 	private JPanel panel;
 	public static DefaultListModel<Stock> listModel = new DefaultListModel<Stock>();
@@ -28,7 +28,7 @@ public class stockList extends JFrame {
 
 	private JList<Stock> list = new JList<Stock>(listModel);
 
-    public stockList()
+    public managerStockList()
     {
         setTitle("Stock List");
 		setSize(1000, 600);
@@ -41,23 +41,6 @@ public class stockList extends JFrame {
 		title.setFont(new Font("Arial", Font.PLAIN, 25));
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
-
-		JButton accountList = new JButton("Account List");
-        accountList.setBounds(200, 0, 200, 50);
-		panel.add(accountList);
-
-		accountList.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.accountList.isVisible())
-				{
-					mainGUI.accountList.setVisible(true);
-                    mainGUI.stockList.setVisible(false);
-                    mainGUI.accountList.updateList();
-				}
-			}
-		});
 		
         JButton stockList = new JButton("Stock List");
         stockList.setBounds(400, 0, 200, 50);
@@ -67,40 +50,13 @@ public class stockList extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				if(!mainGUI.stockList.isVisible())
+				if(!mainGUI.managerStockList.isVisible())
 				{
-					mainGUI.stockList.setVisible(true);
+					mainGUI.managerStockList.setVisible(true);
 				}
                 updateList();
 			}
 		});
-
-		JButton select = new JButton("Invest");
-		select.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) {
-				if (list != null)
-				{
-					System.out.println(list.getSelectedValue());
-					if (list.getSelectedValue() != null)
-					{
-						currentUser.getInstance().setStock((list.getSelectedValue()));
-						System.out.println("Selected Stock: " + currentUser.getInstance().getStock());
-						mainGUI.invest.setVisible(true);
-					}
-					else
-					{
-						JOptionPane.showMessageDialog(null, "Select a stock", "No Selected Stock", JOptionPane.INFORMATION_MESSAGE);
-					}
-				}
-				else
-				{
-					JOptionPane.showMessageDialog(null, "No Available Accounts", "No Accounts", JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-		});
-		select.setBounds(600, 0, 200, 50);
-		panel.add(select);
 
         JScrollPane listStocks = new JScrollPane();
 		listStocks.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -113,15 +69,12 @@ public class stockList extends JFrame {
 
 	public void updateList()
 	{
-		List<Stock> userAccounts = App.getStocks();
+		List<Stock> stockList = App.getStocks();
 		listModel.removeAllElements();
-		if (userAccounts != null)
+		if (stockList != null)
 		{
-			for(Stock val : userAccounts)
+			for(Stock val : stockList)
 				listModel.addElement(val);
-		}
-		else
-		{
 		}
 	}
 
