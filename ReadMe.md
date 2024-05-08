@@ -1,6 +1,3 @@
-Kev’s Guide to Readme.txt or Readme.md
-Required sections: Header, Files, Notes, How to compile and run, I/O Example
-
 # CS611-Final Assignment
 ## Name of Assignment
 ---------------------------------------------------------------------------
