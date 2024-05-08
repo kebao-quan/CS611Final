@@ -9,6 +9,7 @@ package backEnd;
 import java.io.Serializable;
 
 public class Stock implements Serializable {
+    String ownerId = "";
     String symbol = "";
     String name = "";
     double price = 0.0;
@@ -33,8 +34,16 @@ public class Stock implements Serializable {
         return price;
     }
 
+    public String getOwner() {
+        return ownerId;
+    }
+
     public double getBoughtPrice() {
         return boughtPrice;
+    }
+
+    public void setOwner(String username) {
+        this.ownerId = username;
     }
 
     public void setPrice(double price) {
