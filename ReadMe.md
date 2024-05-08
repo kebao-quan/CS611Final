@@ -72,5 +72,5 @@ Your directions on how to run the code. Ideally should resemble the lines below
 1. Navigate to the directory after unzipping the files
 2. Run the following instructions:  
 mkdir -p bin  
-javac src/*.java -d bin  
+javac *.java -d bin  
 java -cp ./bin Main
