@@ -26,8 +26,6 @@ public class managerMenu extends JFrame {
 		panel.add(title);
 		
 
-        // TODO manager
-
 		JButton dailyTransaction = new JButton("Daily Transaction");
         dailyTransaction.setBounds(200, 0, 200, 50);
 		panel.add(dailyTransaction);

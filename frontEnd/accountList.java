@@ -68,6 +68,7 @@ public class accountList extends JFrame {
 				if(!mainGUI.transactionHistory.isVisible())
 				{
 					mainGUI.transactionHistory.setVisible(true);
+					mainGUI.transactionHistory.updateList();
 				}
 			}
 		});

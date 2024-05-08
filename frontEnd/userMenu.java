@@ -64,6 +64,7 @@ public class userMenu extends JFrame {
 				if(!mainGUI.transactionHistory.isVisible())
 				{
 					mainGUI.transactionHistory.setVisible(true);
+					mainGUI.transactionHistory.updateList();
 				}
 			}
 		});
