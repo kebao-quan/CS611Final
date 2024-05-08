@@ -68,8 +68,11 @@ public class App {
      * @param stock The stock to buy
      * @param quantity The quantity of the stock to buy
      */
-    public static void accountBuyStock(String accountId, Stock stock, int quantity) {
-        Database.getInstance().accountBuyStock(accountId, stock, quantity);
+    public static void accountBuyStock(String accountId, Stock stock, int quantity) throws InsufficientFundsException {
+        Database.getInstance().getAccount(accountId).withdraw(stock.getPrice() * quantity);
+        Database.persist();
+        
+        Database.getInstance().accountAddStock(accountId, stock, quantity);
     }
 
 

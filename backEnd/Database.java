@@ -95,8 +95,12 @@ public class Database implements Serializable {
         return userStocksList;
     }
 
-    public void accountBuyStock(String accountId, Stock stock, int quantity) {
+    public void accountAddStock(String accountId, Stock stock, int quantity) {
         List<Stock> stocksList = accountStocks.get(accountId);
+        if (stocksList == null) {
+            stocksList = new ArrayList<>();
+            accountStocks.put(accountId, stocksList);
+        }
 
         // create a copy of stock
         Stock stock_copy = new Stock(stock.getSymbol(), stock.getName(), stock.getPrice());
