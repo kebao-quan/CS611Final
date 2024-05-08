@@ -75,6 +75,24 @@ public class stockList extends JFrame {
 			}
 		});
 
+        JButton backButton = new JButton("Back");
+        backButton.setBounds(600, 0, 200, 50);
+		panel.add(backButton);
+
+		backButton.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.stock.isVisible())
+				{
+					mainGUI.stock.setVisible(true);
+                    mainGUI.stockList.setVisible(false);
+
+				}
+                mainGUI.stock.updateList();
+			}
+		});
+
 		JButton select = new JButton("Invest");
 		select.addActionListener(new ActionListener() 
 		{
@@ -119,9 +137,6 @@ public class stockList extends JFrame {
 		{
 			for(Stock val : userAccounts)
 				listModel.addElement(val);
-		}
-		else
-		{
 		}
 	}
 

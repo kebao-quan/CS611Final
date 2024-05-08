@@ -25,14 +25,6 @@ public class userMenu extends JFrame {
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-        // TODO close account
-        // TODO stocks, accountDetails.java to check what account type the user has, stock.java for rest
-			// currencies?
-		// transfer money
-
-		// manager side 
-		// manger needs to add stock
-        
         JButton accountList = new JButton("Account List");
         accountList.setBounds(200, 0, 200, 50);
 		panel.add(accountList);

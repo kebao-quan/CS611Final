@@ -2,14 +2,25 @@ package frontEnd;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+import backEnd.App;
+import backEnd.Stock;
+
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class stock extends JFrame {
 	private JPanel panel;
+	public static DefaultListModel<Stock> listModel = new DefaultListModel<Stock>();
+	private JList<Stock> list = new JList<Stock>(listModel);
 
 	public stock() 
     {
@@ -58,5 +69,28 @@ public class stock extends JFrame {
 				}
 			}
 		});
+
+		JLabel owned = new JLabel("Owned Stocks");
+		owned.setBounds(0, 50, 200, 50);
+		panel.add(owned);
+
+		JScrollPane listStocks = new JScrollPane();
+		listStocks.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		listStocks.setBounds(0, 100, 950, 500);
+		panel.add(listStocks);
+		listStocks.setViewportView(list);
     }
+
+	public void updateList()
+	{
+
+		//TODO change this to user stocks
+		List<Stock> userAccounts = App.getStocks();
+		listModel.removeAllElements();
+		if (userAccounts != null)
+		{
+			for(Stock val : userAccounts)
+				listModel.addElement(val);
+		}
+	}
 }
