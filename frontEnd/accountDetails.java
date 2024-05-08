@@ -19,13 +19,12 @@ public class accountDetails extends JFrame {
 		setContentPane(panel);
 		panel.setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		JLabel title = new JLabel("Bank ATM");
 		title.setFont(new Font("Arial", Font.PLAIN, 25));
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-        JButton accountList = new JButton("Account List");
+        JButton accountList = new JButton("Account Details");
         accountList.setBounds(200, 0, 200, 50);
 		panel.add(accountList);
 
@@ -36,8 +35,8 @@ public class accountDetails extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
-					mainGUI.accountList.updateList();
                     mainGUI.accountDetails.setVisible(false);
+                    mainGUI.accountList.updateList();
 				}
 			}
 		});
@@ -72,6 +71,22 @@ public class accountDetails extends JFrame {
 			}
 		});
 
+	}
+    public void update()
+    {
+        currentUser user = currentUser.getInstance();
+        // TODO need to get account type
+        if (user.getAccount() != null)
+        {
+            securities();
+        }
+        else
+        {
+            regularAccount();
+        }
+    }
+    private void regularAccount()
+    {
         JButton loanButton = new JButton("Take Loan");
         loanButton.setBounds(800, 0, 200, 50);
 		panel.add(loanButton);
@@ -86,5 +101,24 @@ public class accountDetails extends JFrame {
 				}
 			}
 		});
-	}
+    }
+
+    private void securities()
+    {
+        JButton stockButton = new JButton("Stock");
+        stockButton.setBounds(800, 0, 200, 50);
+		panel.add(stockButton);
+
+		stockButton.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.stock.isVisible())
+				{
+					mainGUI.stock.setVisible(true);
+                    mainGUI.accountDetails.setVisible(false);
+				}
+			}
+		});
+    }
 }

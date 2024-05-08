@@ -22,7 +22,7 @@ public class Login {
 	public Login() 
     {
 		frame = new JFrame();
-		frame.setSize(1200, 600);
+		frame.setSize(1000, 600);
 		frame.getContentPane().setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

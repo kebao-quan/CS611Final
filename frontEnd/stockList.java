@@ -19,7 +19,7 @@ import backEnd.User;
 import backEnd.Account;
 import javax.swing.DefaultListModel;
 
-public class accountList extends JFrame {
+public class stockList extends JFrame {
     
 	private JPanel panel;
 	public static DefaultListModel<Account> listModel = new DefaultListModel<Account>();
@@ -27,9 +27,9 @@ public class accountList extends JFrame {
 
 	private JList<Account> list = new JList<Account>(listModel);
 
-    public accountList()
+    public stockList()
     {
-        setTitle("Account List");
+        setTitle("Stock List");
 		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
@@ -52,42 +52,30 @@ public class accountList extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
+                    mainGUI.stockList.setVisible(false);
+                    mainGUI.accountList.updateList();
 				}
-				updateList();
 			}
 		});
 		
-        JButton transactionHistory = new JButton("Transaction History");
-        transactionHistory.setBounds(400, 0, 200, 50);
-		panel.add(transactionHistory);
+        JButton stockList = new JButton("Stock List");
+        stockList.setBounds(400, 0, 200, 50);
+		panel.add(stockList);
 
-		transactionHistory.addActionListener(new ActionListener() 
+		stockList.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				if(!mainGUI.transactionHistory.isVisible())
+				if(!mainGUI.stockList.isVisible())
 				{
-					mainGUI.transactionHistory.setVisible(true);
+					mainGUI.stockList.setVisible(true);
+                    mainGUI.stock.setVisible(false);
+                    updateList();
 				}
 			}
 		});
 
-		JButton openAccount = new JButton("Open Account");
-        openAccount.setBounds(600, 0, 200, 50);
-		panel.add(openAccount);
-
-		openAccount.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.openAccount.isVisible())
-				{
-					mainGUI.openAccount.setVisible(true);
-				}
-			}
-		});
-
-		JButton select = new JButton("Details");
+		JButton select = new JButton("Invest");
 		select.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +101,7 @@ public class accountList extends JFrame {
 				}
 			}
 		});
-		select.setBounds(800, 0, 200, 50);
+		select.setBounds(600, 0, 200, 50);
 		panel.add(select);
 		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();

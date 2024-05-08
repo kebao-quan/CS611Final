@@ -16,4 +16,8 @@ public class mainGUI {
 	public static accountDetails accountDetails = new accountDetails();
 	public static withdraw withdraw = new withdraw();
 	public static deposite deposite = new deposite();
+	public static stock stock = new stock();
+	public static managerStockMenu managerStockMenu = new managerStockMenu();
+	public static stockList stockList = new stockList();
+	
 }

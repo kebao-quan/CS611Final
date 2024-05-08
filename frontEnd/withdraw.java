@@ -10,6 +10,8 @@ import backEnd.Transaction;
 import backEnd.WithdrawalTransaction;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -47,19 +49,18 @@ public class withdraw extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				// check if withdraw amount is a number
 				String accountId = currentUser.getInstance().getAccount();
 				String amount = withdrawAmount.getText();
 				try {
 					double amountDouble = Double.parseDouble(amount);
 					Transaction transaction = new WithdrawalTransaction(accountId, amountDouble);
 					transaction.execute();
-					System.out.println("Withdrawn " + amountDouble + " from account " + accountId);
+                    JOptionPane.showMessageDialog(null, "Withdrawn " + amountDouble + " from account " + accountId, "Withdrew", JOptionPane.INFORMATION_MESSAGE);
 				} catch (NumberFormatException ex) {
-					System.out.println("Invalid amount");
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				} catch (InsufficientFundsException ex) {
-					System.out.println("Insufficient funds");
+					JOptionPane.showMessageDialog(null, "Insufficient Funds", "Insufficient Funds", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 

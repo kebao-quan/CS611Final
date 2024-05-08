@@ -14,7 +14,7 @@ public class managerMenu extends JFrame {
 	public managerMenu() 
     {
 		setTitle("Menu");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -27,25 +27,9 @@ public class managerMenu extends JFrame {
 		
 
         // TODO manager
-        
-        JButton accountList = new JButton("Account List");
-        accountList.setBounds(200, 0, 200, 50);
-		panel.add(accountList);
-
-		accountList.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.accountList.isVisible())
-				{
-					mainGUI.accountList.setVisible(true);
-                    mainGUI.managerMenu.setVisible(false);					
-				}
-			}
-		});
 
 		JButton dailyTransaction = new JButton("Daily Transaction");
-        dailyTransaction.setBounds(400, 0, 200, 50);
+        dailyTransaction.setBounds(200, 0, 200, 50);
 		panel.add(dailyTransaction);
 
 		dailyTransaction.addActionListener(new ActionListener() 
@@ -55,13 +39,12 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.allTransaction.isVisible())
 				{
 					mainGUI.allTransaction.setVisible(true);
-                    mainGUI.managerMenu.setVisible(false);					
 				}
 			}
 		});
 
 		JButton userList = new JButton("User List");
-        userList.setBounds(600, 0, 200, 50);
+        userList.setBounds(400, 0, 200, 50);
 		panel.add(userList);
 
 		userList.addActionListener(new ActionListener() 
@@ -71,7 +54,21 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.allUsers.isVisible())
 				{
 					mainGUI.allUsers.setVisible(true);
-                    mainGUI.managerMenu.setVisible(false);					
+				}
+			}
+		});
+
+		JButton stockButton = new JButton("Stock");
+        stockButton.setBounds(600, 0, 200, 50);
+		panel.add(stockButton);
+
+		stockButton.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+				if(!mainGUI.stock.isVisible())
+				{
+					mainGUI.managerStockMenu.setVisible(true);
 				}
 			}
 		});

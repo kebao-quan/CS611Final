@@ -23,7 +23,7 @@ public class openAccount extends JFrame {
     public openAccount()
     {
         setTitle("Open Account");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
