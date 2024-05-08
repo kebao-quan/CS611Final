@@ -64,8 +64,18 @@ public class Database implements Serializable {
         return accounts.get(accountId);
     }
 
-    public Set<Transaction> getTransactions() {
-        return transactions;
+    public List<Transaction> getTransactions(String username) {
+        List<Transaction> userTransactions = new ArrayList<>();
+        
+        List<Account> userAccountList = userAccounts.get(username);
+        for (Account account : userAccountList) {
+            List<Transaction> TransactionsList = accountTransactions.get(account.getAccountId());
+            
+            for (Transaction transaction : TransactionsList) {
+                userTransactions.add(transaction);
+            }
+        }
+        return userTransactions;
     }
 
     public Set<Stock> getStocks() {
@@ -84,6 +94,14 @@ public class Database implements Serializable {
         return allAccounts;
     }
 
+    public List<Transaction> getAllTransactions() {
+        List<Transaction> allTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            allTransactions.add(transaction);
+        }
+        return allTransactions;
+    }
+
 
     /**
      * Return false if the user already exists
@@ -93,6 +111,9 @@ public class Database implements Serializable {
             return null;
         User user = new User(userName, password);
         users.put(userName, user);
+
+        List<Account> userAccountList = new ArrayList<>();
+        userAccounts.put(userName, userAccountList);
         persist();
         return user;
     }
@@ -105,6 +126,10 @@ public class Database implements Serializable {
         }
         userAccountList.add(account);
         accounts.put(account.getAccountId(), account);
+        
+        List<Transaction> accountTransactionsList = new ArrayList<>();
+        accountTransactions.put(account.getAccountId(), accountTransactionsList);
+
         persist();
     }
 
