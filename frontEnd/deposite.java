@@ -1,3 +1,6 @@
+/*
+ * interface for depositing money into a selected account
+ */
 package frontEnd;
 
 import javax.swing.JButton;

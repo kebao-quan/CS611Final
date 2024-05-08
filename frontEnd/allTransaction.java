@@ -1,3 +1,6 @@
+/*
+ * Displays all transactions from all users.
+ */
 package frontEnd;
 
 import javax.swing.DefaultListModel;

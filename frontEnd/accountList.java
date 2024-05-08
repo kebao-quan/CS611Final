@@ -1,3 +1,6 @@
+/*
+ * Displays a list of all the accounts that the current user owns.
+ */
 package frontEnd;
 
 import javax.swing.JButton;

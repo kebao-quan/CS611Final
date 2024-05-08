@@ -1,3 +1,6 @@
+/*
+ * Displays all information and neccessary buttons regarding a chosen account of the current user
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

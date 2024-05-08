@@ -1,3 +1,6 @@
+/*
+ * Allows the ability to add a new stock to the market
+ */
 package frontEnd;
 
 import java.util.List;

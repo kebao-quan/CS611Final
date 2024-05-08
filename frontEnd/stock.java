@@ -83,9 +83,7 @@ public class stock extends JFrame {
 
 	public void updateList()
 	{
-
-		//TODO change this to user stocks
-		List<Stock> userAccounts = App.getStocks();
+		List<Stock> userAccounts = App.getStocks(currentUser.getInstance().getAccount());
 		listModel.removeAllElements();
 		if (userAccounts != null)
 		{

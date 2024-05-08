@@ -1,3 +1,6 @@
+/*
+ * Displays all users in our bank
+ */
 package frontEnd;
 
 import javax.swing.DefaultListModel;
