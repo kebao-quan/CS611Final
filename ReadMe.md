@@ -5,7 +5,7 @@ Name: Ziping(Peter) Wang
 Email: pwang78@bu.edu  
 Student ID: U34449628  
 
-Name: Kebao Quan
+Name: Kebao Quan  
 Email: kbquan@bu.edu  
 Student ID: U72941647  
 
