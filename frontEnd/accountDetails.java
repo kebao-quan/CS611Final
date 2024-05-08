@@ -25,7 +25,7 @@ public class accountDetails extends JFrame {
 		title.setBounds(0, 0, 200, 50);
 		panel.add(title);
 		
-        JButton accountList = new JButton("Account List");
+        JButton accountList = new JButton("Account Details");
         accountList.setBounds(200, 0, 200, 50);
 		panel.add(accountList);
 
@@ -36,8 +36,8 @@ public class accountDetails extends JFrame {
 				if(!mainGUI.accountList.isVisible())
 				{
 					mainGUI.accountList.setVisible(true);
-					mainGUI.accountList.updateList();
                     mainGUI.accountDetails.setVisible(false);
+                    mainGUI.accountList.updateList();
 				}
 			}
 		});

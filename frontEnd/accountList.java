@@ -22,8 +22,10 @@ import javax.swing.DefaultListModel;
 public class accountList extends JFrame {
     
 	private JPanel panel;
-	public static DefaultListModel<Account> listModel;
-	private JList<Account> list;
+	public static DefaultListModel<Account> 		listModel = new DefaultListModel<Account>();
+
+
+	private JList<Account> 			list = new JList<Account>(listModel);
 
     public accountList()
     {
@@ -91,6 +93,7 @@ public class accountList extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (list != null)
 				{
+					System.out.println(list.getSelectedValue());
 					if (list.getSelectedValue() != null)
 					{
 						currentUser.getInstance().setAccount(list.getSelectedValue().getAccountId());
@@ -111,30 +114,25 @@ public class accountList extends JFrame {
 		});
 		select.setBounds(800, 0, 200, 50);
 		panel.add(select);
-    }
-
-	public void updateList()
-	{
-		listModel = new DefaultListModel<Account>();
 		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();
 		listAccount.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		listAccount.setBounds(0, 50, 950, 500);
 		panel.add(listAccount);
+		listAccount.setViewportView(list);
+
+    }
+
+	public void updateList()
+	{
+		// for fetching updating our user list		
 		String username = currentUser.getInstance().getUsername();
 		List<Account> userAccounts = App.getAccounts(username);
-
-		
+		listModel.removeAllElements();
 		if (userAccounts != null)
 		{
-			//System.out.println(username);
-			//System.out.println("num of accounts: " + userAccounts.size());
 			for(Account val : userAccounts)
-			listModel.addElement(val);
-		
-			list = new JList<Account>(listModel);
-
-			listAccount.setViewportView(list);
+				listModel.addElement(val);
 		}
 		else
 		{
