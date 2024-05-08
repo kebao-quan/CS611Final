@@ -29,7 +29,6 @@ public class userMenu extends JFrame {
 		// hookup withdraw deposite and loan
 		// interest
 		// securities account insides
-		// adding and withdraw from account, transfer from another account
 		// creating secruties account
         // TODO close account
         // TODO stocks

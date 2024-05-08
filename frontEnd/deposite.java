@@ -9,6 +9,8 @@ import backEnd.Account;
 import backEnd.App;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -46,23 +48,21 @@ public class deposite extends JFrame {
         {
 			public void actionPerformed(ActionEvent e) 
             {
-				// check if depo amount is a double
-                //TODO put in db
 				String accountId = currentUser.getInstance().getAccount();
 				String amount = withdrawAmount.getText();
 				try {
 					Double.parseDouble(amount);
 				} catch (NumberFormatException ex) {
-					System.out.println("Invalid amount");
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 				double amountDouble = Double.parseDouble(amount);
 				if (amountDouble <= Account.getTransactionFee()) {
-					System.out.println("Invalid amount");
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 				App.deposit(accountId, amountDouble);
-				System.out.println("Deposited " + amount + " to account " + accountId);
+                JOptionPane.showMessageDialog(null, "Deposited " + amount + " to account " + accountId, "Deposited", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
     }

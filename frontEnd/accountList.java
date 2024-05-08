@@ -100,6 +100,7 @@ public class accountList extends JFrame {
 						System.out.println("Selected Account: " + currentUser.getInstance().getAccount());
 						mainGUI.accountList.setVisible(false);
 						mainGUI.accountDetails.setVisible(true);
+						mainGUI.accountDetails.update();
 					}
 					else
 					{

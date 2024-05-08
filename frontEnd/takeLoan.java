@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -71,7 +73,7 @@ public class takeLoan extends JFrame {
 				String collatAmmount = collatAmount.getText();
 
 				if (amount.isEmpty() || collat.isEmpty() || collatAmmount.isEmpty()) {
-					System.out.println("Invalid amount");
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 
@@ -81,27 +83,27 @@ public class takeLoan extends JFrame {
 					amountDouble = Double.parseDouble(amount);
 					collatAmmountDouble = Double.parseDouble(collatAmmount);
 				} catch (NumberFormatException ex) {
-					System.out.println("Invalid amount");
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 
 				if (amountDouble <= 100) {
-					System.out.println("Loan amount must be greater than 100");
+					JOptionPane.showMessageDialog(null, "Loan Amount Must Be Greater Than 100", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 
 				if (collatAmmountDouble <= 0) {
-					System.out.println("Collateral amount must be greater than 0");
+					JOptionPane.showMessageDialog(null, "Collateral Amount Must Be Greater Than 0", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 
 				if (collatAmmountDouble < amountDouble) {
-					System.out.println("Collateral amount must be greater than loan amount");
+					JOptionPane.showMessageDialog(null, "Collateral Amount Must Be Greater Than Loan Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
 
 				App.loan(accountId, amountDouble, collatAmmount, collatAmmountDouble);
-				System.out.println("Loan taken for " + amountDouble + " with collateral " + collat + " costing " + collatAmmountDouble);
+				JOptionPane.showMessageDialog(null, "Loan taken for " + amountDouble + " with collateral " + collat + " costing " + collatAmmountDouble, "Took Loan", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
     }

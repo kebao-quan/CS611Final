@@ -16,7 +16,7 @@ public class transactionHistory extends JFrame {
     public transactionHistory()
     {
         setTitle("Transaction History");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -30,7 +30,7 @@ public class transactionHistory extends JFrame {
 		JScrollPane transctionList = new JScrollPane();
 		transctionList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		transctionList.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		transctionList.setBounds(0, 50, 1150, 500);
+		transctionList.setBounds(0, 50, 950, 500);
 		panel.add(transctionList);
 		
 		// TODO populate both lists, transaction and account

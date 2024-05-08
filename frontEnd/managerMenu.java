@@ -27,22 +27,6 @@ public class managerMenu extends JFrame {
 		
 
         // TODO manager
-        
-        JButton accountList = new JButton("Account List");
-        accountList.setBounds(200, 0, 200, 50);
-		panel.add(accountList);
-
-		accountList.addActionListener(new ActionListener() 
-        {
-			public void actionPerformed(ActionEvent e) 
-            {
-				if(!mainGUI.accountList.isVisible())
-				{
-					mainGUI.accountList.setVisible(true);
-                    mainGUI.managerMenu.setVisible(false);					
-				}
-			}
-		});
 
 		JButton dailyTransaction = new JButton("Daily Transaction");
         dailyTransaction.setBounds(400, 0, 200, 50);
