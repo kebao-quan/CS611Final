@@ -22,5 +22,6 @@ public class mainGUI {
 	public static invest invest = new invest();
 	public static addStock addStock = new addStock();
 	public static managerStockList managerStockList = new managerStockList();
+	public static profit profit = new profit();
 	
 }
