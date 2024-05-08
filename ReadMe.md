@@ -11,7 +11,7 @@ Student ID: U72941647
 
 ## Files
 ---------------------------------------------------------------------------
-FrontEnd:  
+### FrontEnd:  
 accountDetails.java: displays account details when a specific account is selected    
 accountList.java: displays a list of accounts that the user have  
 addStock.java: interface for manager so he can create stocks  
@@ -35,7 +35,7 @@ transactionHistory.java: displays the transaction history for the current user.
 userMenu.java: initial menu for the user,  
 withdraw.java: interface for user to withdraw money from their account.  
 
-BackEnd:
+### BackEnd:  
 Account.java:  Account class is an abstract class that represents a generic account. It contains the basic information of an account such as the account ID, balance, currency, and username.  
 AccountFactory.java: AccountFactory class is a factory class that creates an account object based on the account type. It contains a createAccount method that takes the username, account type, initial balance, and currency as parameters.  
 App.java: This class define the method for frontend to interact with the backend.  
