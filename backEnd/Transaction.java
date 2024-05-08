@@ -43,10 +43,19 @@ public abstract class Transaction implements Serializable {
         return accountId;
     }
 
+    private String ShortId() {
+        return transactionId.substring(0, 8) + "...";
+    }
+
+    private String type() {
+        return this.getClass().getSimpleName();
+    }
+
     public String toString() {
-        return "Transaction ID: " + transactionId + "\n" +
-                "Transaction Date: " + transactionDate + "\n" +
-                "Amount: " + amount + "\n" +
+        return "Transaction ID: " + ShortId() + "   " +
+                "Type: " + type() + "   " +
+                "Date: " + transactionDate + "   " +
+                "Amount: " + amount + "   " +
                 "Account ID: " + accountId;
     }
 }
