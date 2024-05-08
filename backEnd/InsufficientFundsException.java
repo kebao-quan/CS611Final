@@ -1,3 +1,7 @@
+/**
+ * InsufficientFundsException is thrown when a user tries to withdraw more money than they have in their account.
+ */
+
 package backEnd;
 public class InsufficientFundsException extends Exception {
     public InsufficientFundsException(String message) {

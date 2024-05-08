@@ -1,3 +1,9 @@
+/**
+ * Database.java
+ * This class is the database of the application, it stores all the users, accounts, transactions and stocks.
+ * It is a singleton class, and the instance can be accessed by calling Database.getInstance().
+ */
+
 package backEnd;
 import java.util.List;
 import java.util.ArrayList;

@@ -1,4 +1,11 @@
+/**
+ * Stock class that represents a stock object with a symbol, name, and price.
+ * This class is used to store stock information.
+ */
+
+
 package backEnd;
+
 import java.io.Serializable;
 
 public class Stock implements Serializable {
@@ -24,4 +31,10 @@ public class Stock implements Serializable {
         return price;
     }
 
+    @Override
+    public String toString() {
+        return "Stock Symbol: " + symbol + "   " +
+                "Stock Name: " + name + "   " +
+                "Stock Price: " + price;
+    }
 }

@@ -1,3 +1,8 @@
+/**
+ * AccountFactory class is a factory class that creates an account object based on the account type.
+ * It contains a createAccount method that takes the username, account type, initial balance, and currency as parameters
+ */
+
 package backEnd;
 import java.util.Currency;
 
