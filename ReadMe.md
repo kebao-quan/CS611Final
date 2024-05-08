@@ -13,6 +13,27 @@ Student ID: U72941647
 ---------------------------------------------------------------------------
 FrontEnd:
 accountDetails.java: displays account details when a specific account is selected  
+accountList.java: displays a list of accounts that the user have
+addStock.java: interface for manager so he can create stocks
+allTransaction.java: displays a list of all transactions by all users, for the manager.
+allUsers.java: displays a list of all users, for manager.
+currentUser.java: singleton class to keep track of the current user and its selected items.
+deposite.java: interface for user to deposite money in to their accounts. 
+invest.java: interface for user to invest in to stocks through their securities account.
+Login.java: initial interface for user to log in from.
+mainGUI.java: initializes all the pages.
+managerMenu.java: menu for manager.
+managerStockList.java: lists all the stocks for the manager to view.
+managerStockMenu.java: stock menu for the manager, has different buttons than the user one.
+openAccount.java: interface for user to open an account.
+profit.java: displays the profit earned by the user from their stocks.
+register.java: register menu for soon to be users.
+stock.java: stock menu for the users.
+stockList.java: lists the stocks for the user.
+takeLoan.java: interface for the user to take a loan.
+transactionHistory.java: displays the transaction history for the current user.
+userMenu.java: initial menu for the user,
+withdraw.java: interface for user to withdraw money from their account.
 
 BackEnd:
 Account.java:  Account class is an abstract class that represents a generic account. It contains the basic information of an account such as the account ID, balance, currency, and username.  
