@@ -58,6 +58,7 @@ Stock.java: Stock class that represents a stock object with a symbol, name, and 
 ---------------------------------------------------------------------------
 1. We implement strict data consistency. We can have multiple programs accessing the same database.
 2. Enter "manager" for both username and password to enter the manager menu.
+3. User are able to close account.
 
 ## Citaions
 ---------------------------------------------------------------------------
