@@ -8,10 +8,10 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class stock extends JFrame {
+public class managerStockMenu extends JFrame {
 	private JPanel panel;
 
-	public stock() 
+	public managerStockMenu() 
     {
 		setTitle("Stock");
 		setSize(1000, 600);
