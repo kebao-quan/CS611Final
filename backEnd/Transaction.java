@@ -1,3 +1,8 @@
+/**
+ * This class is an abstract class that represents a transaction. It contains the transaction ID, date, amount, and account ID.
+ * It also contains an abstract method to execute the transaction.
+ */
+
 package backEnd;
 import java.util.Date;
 import java.io.Serializable;

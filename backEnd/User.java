@@ -1,3 +1,9 @@
+/**
+ * User class
+ * This class represents a user of the application. It contains the username, password, debt, and a list of collaterals.
+ */
+
+
 package backEnd;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +43,20 @@ public class User implements Serializable {
 
     public void addCollateral(Collateral collateral) {
         collaterals.add(collateral);
+    }
+    
+    private String printCollaterals() {
+        String result = "";
+        for (Collateral collateral : collaterals) {
+            result += collateral.toString() + "  ";
+        }
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Username: " + userName + "   " +
+                "Debt: " + debt + "   " +
+                "Collaterals: " + printCollaterals();
     }
 }

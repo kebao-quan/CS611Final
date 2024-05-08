@@ -1,3 +1,10 @@
+/**
+ * Account class is an abstract class that represents a generic account.
+ * It contains the basic information of an account such as the account ID, balance, currency, and username.
+ */
+
+
+
 package backEnd;
 import java.io.Serializable;
 import java.util.Currency;
