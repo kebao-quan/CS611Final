@@ -1,6 +1,7 @@
 package backEnd;
 import java.util.Currency;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -25,12 +26,6 @@ public class App {
         return null;
     }
 
-    /**
-     * Get the accounts of the user with the given username.
-     * 
-     * @param username The username of the user
-     * @return The list of accounts of the user
-     */
     public static List<Account> getAccounts(String username) {
         return Database.getInstance().getAccountsByUserID(username);
     }
@@ -54,6 +49,26 @@ public class App {
     public static List<Transaction> getUserTransactions(String username) {
         return Database.getInstance().getTransactions(username);
     }
+
+    public static List<Stock> getStocks() {
+        Set<Stock> stocks = Database.getInstance().getStocks();
+        return List.copyOf(stocks);
+    }
+
+
+    
+    /**
+     * Add a stock with the given symbol, name and price to the database.
+     * 
+     * @param symbol The symbol of the stock
+     * @param name The name of the stock
+     * @param price The price of the stock
+     */
+    public static void addStock(String symbol, String name, double price) {
+        Stock stock = new Stock(symbol, name,  price);
+        Database.getInstance().addStock(stock);
+    }
+
 
     /**
      * Create a user with the given username and password.

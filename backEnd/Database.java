@@ -150,6 +150,11 @@ public class Database implements Serializable {
         persist();
     }
 
+    public void addStock(Stock stock) {
+        stocks.add(stock);
+        persist();
+    }
+
     /*
      * persist() and readPersist() methods are used to serialize and deserialize the database
      */
