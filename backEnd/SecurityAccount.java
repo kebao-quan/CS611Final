@@ -4,7 +4,7 @@ import java.util.Currency;
 
 public class SecurityAccount extends Account{
     private static final double TRANSACTION_FEE = 2.0;
-    private static final String ACCOUNT_TYPE = "Security";
+    private static final String ACCOUNT_TYPE = "Securities";
 
     public SecurityAccount(String username, double initialBalance, Currency currency) {
         super(username, initialBalance, currency);

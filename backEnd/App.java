@@ -35,6 +35,10 @@ public class App {
         return Database.getInstance().getAccountsByUserID(username);
     }
 
+    public static Account getAccount(String AccountID) {
+        return Database.getInstance().getAccount(AccountID);
+    }
+
     public static List<Account> getAllAccounts() {
         return Database.getInstance().getAllAccounts();
     }

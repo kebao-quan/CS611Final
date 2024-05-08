@@ -2,6 +2,9 @@ package frontEnd;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import backEnd.App;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -76,7 +79,8 @@ public class accountDetails extends JFrame {
     {
         currentUser user = currentUser.getInstance();
         // TODO need to get account type
-        if (user.getAccount() != null)
+		String accountType = App.getAccount(user.getAccount()).getAccountType();
+        if (accountType.equals("Securities"))
         {
             securities();
         }
