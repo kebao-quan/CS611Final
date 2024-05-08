@@ -43,7 +43,7 @@ public class stock extends JFrame {
 		});
 
 		JButton stockList = new JButton("Stock List");
-        stockList.setBounds(200, 0, 200, 50);
+        stockList.setBounds(400, 0, 200, 50);
 		panel.add(stockList);
 
 		stockList.addActionListener(new ActionListener() 

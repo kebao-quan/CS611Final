@@ -59,7 +59,7 @@ public class stockList extends JFrame {
 		});
 		
         JButton stockList = new JButton("Stock List");
-        stockList.setBounds(200, 0, 200, 50);
+        stockList.setBounds(400, 0, 200, 50);
 		panel.add(stockList);
 
 		stockList.addActionListener(new ActionListener() 
@@ -101,7 +101,7 @@ public class stockList extends JFrame {
 				}
 			}
 		});
-		select.setBounds(800, 0, 200, 50);
+		select.setBounds(600, 0, 200, 50);
 		panel.add(select);
 		// for displaying list of account
 		JScrollPane listAccount = new JScrollPane();
