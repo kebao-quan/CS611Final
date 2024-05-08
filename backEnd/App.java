@@ -55,6 +55,10 @@ public class App {
         return List.copyOf(stocks);
     }
 
+    public static List<Stock> getStocks(String accountId) {
+        return Database.getInstance().getStocks(accountId);
+    }
+
     public static void accountBuyStock(String accountId, Stock stock, int quantity) {
         Database.getInstance().accountBuyStock(accountId, stock, quantity);
     }
