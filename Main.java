@@ -1,6 +1,6 @@
 // Entry point of the program
 // Date: 05/07/2021
-// Author: Kebao Quan, 
+// Author: Kebao Quan, Ziping(Peter) Wang
 
 
 import frontEnd.*;

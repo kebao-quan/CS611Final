@@ -1,3 +1,6 @@
+/*
+ * Stock menu for the manager
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

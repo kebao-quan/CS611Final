@@ -1,3 +1,6 @@
+/*
+ * Ui to allow the user to open an account
+ */
 package frontEnd;
 
 import java.util.List;

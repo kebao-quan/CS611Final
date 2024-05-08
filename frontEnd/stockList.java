@@ -1,3 +1,6 @@
+/*
+ * List of stocks that the user sees, able to choose which one to invest in to
+ */
 package frontEnd;
 
 import javax.swing.JButton;

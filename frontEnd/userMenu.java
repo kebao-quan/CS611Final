@@ -1,3 +1,6 @@
+/*
+ * main user menu
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

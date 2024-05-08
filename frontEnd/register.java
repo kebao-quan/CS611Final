@@ -1,3 +1,6 @@
+/*
+ * Lets the user to register an account in our awesome atm
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

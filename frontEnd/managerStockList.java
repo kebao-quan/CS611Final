@@ -1,3 +1,6 @@
+/*
+ * Manager view of the list of stocks
+ */
 package frontEnd;
 
 import javax.swing.JButton;

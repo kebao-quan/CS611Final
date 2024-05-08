@@ -1,3 +1,6 @@
+/*
+ * UI for the user to invest in a stock they chose
+ */
 package frontEnd;
 
 import javax.swing.JButton;

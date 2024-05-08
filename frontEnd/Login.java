@@ -1,3 +1,6 @@
+/*
+ * Main login UI
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

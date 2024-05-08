@@ -1,3 +1,6 @@
+/*
+ * UI for the stock menu that the user sees
+ */
 package frontEnd;
 
 import javax.swing.JFrame;

@@ -1,3 +1,6 @@
+/*
+ * Allows user to withdraw from account
+ */
 package frontEnd;
 
 import javax.swing.JButton;

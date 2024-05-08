@@ -1,3 +1,6 @@
+/*
+ * Initializes all of our UIs
+ */
 package frontEnd;
 
 
@@ -21,7 +24,5 @@ public class mainGUI {
 	public static stockList stockList = new stockList();
 	public static invest invest = new invest();
 	public static addStock addStock = new addStock();
-	public static managerStockList managerStockList = new managerStockList();
-	public static profit profit = new profit();
-	
+	public static managerStockList managerStockList = new managerStockList();	
 }

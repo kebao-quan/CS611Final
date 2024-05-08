@@ -1,3 +1,6 @@
+/*
+ * Allows user to take loan on the account they have chosen
+ */
 package frontEnd;
 
 import javax.swing.JButton;

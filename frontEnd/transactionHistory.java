@@ -1,3 +1,6 @@
+/*
+ * Shows the transaction history for our user
+ */
 package frontEnd;
 
 import javax.swing.DefaultListModel;
