@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 
 public class accountDetails extends JFrame {
 	private JPanel panel;
+    private JButton stockButton = new JButton("Stock");
+    private JButton loanButton = new JButton("Take Loan");
 
 	public accountDetails() 
     {
@@ -73,25 +75,6 @@ public class accountDetails extends JFrame {
 				}
 			}
 		});
-
-	}
-    public void update()
-    {
-        currentUser user = currentUser.getInstance();
-        // TODO need to get account type
-		String accountType = App.getAccount(user.getAccount()).getAccountType();
-        if (accountType.equals("Securities"))
-        {
-            securities();
-        }
-        else
-        {
-            regularAccount();
-        }
-    }
-    private void regularAccount()
-    {
-        JButton loanButton = new JButton("Take Loan");
         loanButton.setBounds(800, 0, 200, 50);
 		panel.add(loanButton);
 
@@ -105,11 +88,7 @@ public class accountDetails extends JFrame {
 				}
 			}
 		});
-    }
 
-    private void securities()
-    {
-        JButton stockButton = new JButton("Stock");
         stockButton.setBounds(800, 0, 200, 50);
 		panel.add(stockButton);
 
@@ -124,5 +103,21 @@ public class accountDetails extends JFrame {
 				}
 			}
 		});
+	}
+    public void update()
+    {
+        currentUser user = currentUser.getInstance();
+		String accountType = App.getAccount(user.getAccount()).getAccountType();
+        if (accountType.equals("Securities"))
+        {
+            stockButton.setVisible(true);
+            loanButton.setVisible(false);
+        }
+        else
+        {
+            stockButton.setVisible(false);
+            loanButton.setVisible(true);        
+        }
     }
+        
 }

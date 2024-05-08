@@ -39,6 +39,8 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.allTransaction.isVisible())
 				{
 					mainGUI.allTransaction.setVisible(true);
+					mainGUI.allTransaction.updateList();
+
 				}
 			}
 		});
@@ -54,6 +56,7 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.allUsers.isVisible())
 				{
 					mainGUI.allUsers.setVisible(true);
+					mainGUI.allUsers.updateList();
 				}
 			}
 		});
@@ -69,6 +72,7 @@ public class managerMenu extends JFrame {
 				if(!mainGUI.stock.isVisible())
 				{
 					mainGUI.managerStockMenu.setVisible(true);
+					
 				}
 			}
 		});
