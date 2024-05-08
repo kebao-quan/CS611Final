@@ -13,7 +13,6 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
 import java.util.List;
 
-import backEnd.Account;
 import backEnd.User;
 import backEnd.App;
 

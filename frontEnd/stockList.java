@@ -15,8 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import backEnd.App;
-import backEnd.User;
-import backEnd.Account;
 import backEnd.Stock;
 import javax.swing.DefaultListModel;
 

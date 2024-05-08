@@ -7,7 +7,6 @@ import frontEnd.*;
 
 public class Main {
     public static void main(String[] args) {
-        mainGUI mainGUI = new mainGUI();
         mainGUI.login.frame.setVisible(true);
     }
 }

@@ -7,8 +7,6 @@ import javax.swing.JTextField;
 
 import backEnd.App;
 import backEnd.InsufficientFundsException;
-import backEnd.Transaction;
-import backEnd.WithdrawalTransaction;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

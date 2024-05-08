@@ -11,9 +11,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import backEnd.Transaction;
 import backEnd.App;
-import backEnd.LoanTransaction;
 
 public class takeLoan extends JFrame {
 	private JPanel panel;

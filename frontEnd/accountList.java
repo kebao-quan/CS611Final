@@ -18,7 +18,6 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import backEnd.App;
-import backEnd.User;
 import backEnd.Account;
 import javax.swing.DefaultListModel;
 

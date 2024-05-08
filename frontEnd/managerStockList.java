@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -15,8 +14,6 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import backEnd.App;
-import backEnd.User;
-import backEnd.Account;
 import backEnd.Stock;
 import javax.swing.DefaultListModel;
 

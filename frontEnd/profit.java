@@ -3,12 +3,7 @@ package frontEnd;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import backEnd.App;
 public class profit extends JFrame {
 	private JPanel panel;
 
