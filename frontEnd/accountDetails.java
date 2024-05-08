@@ -75,6 +75,20 @@ public class accountDetails extends JFrame {
 				}
 			}
 		});
+
+        JButton closeAccount = new JButton("Close Account");
+        closeAccount.setBounds(0, 510, 200, 50);
+		panel.add(closeAccount);
+
+		closeAccount.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e) 
+            {
+                mainGUI.userMenu.setVisible(true);
+                // TODO close account
+			}
+		});
+
         loanButton.setBounds(800, 0, 200, 50);
 		panel.add(loanButton);
 
@@ -100,6 +114,7 @@ public class accountDetails extends JFrame {
 				{
 					mainGUI.stock.setVisible(true);
                     mainGUI.accountDetails.setVisible(false);
+                    mainGUI.stock.updateList();
 				}
 			}
 		});
