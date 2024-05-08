@@ -60,8 +60,11 @@ public class Stock implements Serializable {
 
     @Override
     public String toString() {
-        return "Stock Symbol: " + symbol + "   " +
-                "Stock Name: " + name + "   " +
-                "Stock Price: " + price;
+        return "Stock Symbol: " + symbol + "  " +
+                "Stock Name: " + name + "  " +
+                "Stock Price: " + price + "  " +
+                "Stock Quantity: " + quantity + "  " +
+                "Bought Price: " + boughtPrice + "  " +
+                "Unrealized Profit: " + calculateProfit();
     }
 }

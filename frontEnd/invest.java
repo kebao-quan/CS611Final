@@ -70,6 +70,7 @@ public class invest extends JFrame {
 				String accountId = currentUser.getInstance().getAccount();
 				try {
 					App.accountBuyStock(accountId, stock, quantity);
+					JOptionPane.showMessageDialog(null, "Invested " + quantity + " in " + stock.getName(), "Invested", JOptionPane.INFORMATION_MESSAGE);
 				} catch (InsufficientFundsException ex) {
 					JOptionPane.showMessageDialog(null, "Insufficient Funds", "Insufficient Funds", JOptionPane.INFORMATION_MESSAGE);
 					return;

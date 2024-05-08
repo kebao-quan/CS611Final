@@ -105,6 +105,7 @@ public class Database implements Serializable {
         // create a copy of stock
         Stock stock_copy = new Stock(stock.getSymbol(), stock.getName(), stock.getPrice());
         stock_copy.setQuantity(quantity);
+        stock_copy.setBoughtPrice(stock.getPrice());
         stocksList.add(stock_copy);
         persist();
     }
