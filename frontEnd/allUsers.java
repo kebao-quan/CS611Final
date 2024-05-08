@@ -4,19 +4,25 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
+import java.util.List;
+
+import backEnd.Account;
+import backEnd.User;
+import backEnd.App;
 
 public class allUsers extends JFrame {
     
 	private JPanel panel;
-	public static DefaultListModel<String> arr = new DefaultListModel<String>();
-
+	public static DefaultListModel<User> listModel = new DefaultListModel<User>();
+	private JList<User> list = new JList<User>(listModel);
     public allUsers()
     {
         setTitle("All Users");
-		setSize(1200, 600);
+		setSize(1000, 600);
 		panel = new JPanel();
 		setContentPane(panel);
 		panel.setLayout(null);
@@ -27,12 +33,25 @@ public class allUsers extends JFrame {
 		title.setBounds(0, 0, 300, 50);
 		panel.add(title);
 		
-		JScrollPane transctionList = new JScrollPane();
-		transctionList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		transctionList.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		transctionList.setBounds(0, 50, 1150, 500);
-		panel.add(transctionList);
-		
-		// TODO populate list
+		JScrollPane listUsers = new JScrollPane();
+		listUsers.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		listUsers.setBounds(0, 50, 950, 500);
+		panel.add(listUsers);
+		listUsers.setViewportView(list);
+		updateList();
     }
+	
+	public void updateList()
+	{
+		List<User> userAccounts = App.getAllUsers();
+		listModel.removeAllElements();
+		if (userAccounts != null)
+		{
+			for(User val : userAccounts)
+				listModel.addElement(val);
+		}
+		else
+		{
+		}
+	}
 }
