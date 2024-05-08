@@ -19,6 +19,6 @@ public class Collateral implements Serializable{
     }
 
     public String toString() {
-        return name + " - " + value;
+        return name + " - " + value + " $";
     }
 }

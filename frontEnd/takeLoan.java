@@ -102,7 +102,7 @@ public class takeLoan extends JFrame {
 					return;
 				}
 
-				App.loan(accountId, amountDouble, collatAmmount, collatAmmountDouble);
+				App.loan(accountId, amountDouble, collat, collatAmmountDouble);
 				JOptionPane.showMessageDialog(null, "Loan taken for " + amountDouble + " with collateral " + collat + " costing " + collatAmmountDouble, "Took Loan", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
