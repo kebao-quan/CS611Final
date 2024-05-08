@@ -35,6 +35,14 @@ public class App {
         return Database.getInstance().getAccountsByUserID(username);
     }
 
+    public static List<Account> getAllAccounts() {
+        return Database.getInstance().getAllAccounts();
+    }
+
+    public static List<User> getAllUsers() {
+        return Database.getInstance().getAllUsers();
+    }
+
     /**
      * Create a user with the given username and password.
      * 

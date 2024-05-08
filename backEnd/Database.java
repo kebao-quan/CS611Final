@@ -52,6 +52,14 @@ public class Database implements Serializable {
         return users.get(userName);
     }
 
+    public List<User> getAllUsers() {
+        List<User> allUsers = new ArrayList<>();
+        for (User user : users.values()) {
+            allUsers.add(user);
+        }
+        return allUsers;
+    }
+
     public Account getAccount(String accountId) {
         return accounts.get(accountId);
     }
@@ -66,6 +74,14 @@ public class Database implements Serializable {
 
     public List<Account> getAccountsByUserID(String username) {
         return userAccounts.get(username);
+    }
+
+    public List<Account> getAllAccounts() {
+        List<Account> allAccounts = new ArrayList<>();
+        for (Account account : accounts.values()) {
+            allAccounts.add(account);
+        }
+        return allAccounts;
     }
 
 
