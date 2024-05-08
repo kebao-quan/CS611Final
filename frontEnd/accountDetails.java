@@ -88,6 +88,7 @@ public class accountDetails extends JFrame {
 			public void actionPerformed(ActionEvent e) 
             {
                 mainGUI.userMenu.setVisible(true);
+                mainGUI.accountDetails.setVisible(false);
                 String accountId = currentUser.getInstance().getAccount();
 				App.closeAccount(accountId);
 			}
