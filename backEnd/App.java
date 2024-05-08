@@ -71,7 +71,7 @@ public class App {
     public static void accountBuyStock(String accountId, Stock stock, int quantity) throws InsufficientFundsException {
         Database.getInstance().getAccount(accountId).withdraw(stock.getPrice() * quantity);
         Database.persist();
-        
+
         Database.getInstance().accountAddStock(accountId, stock, quantity);
     }
 
@@ -118,6 +118,10 @@ public class App {
         }
         Database.getInstance().addAccount(username, account);
         return account.getAccountId();
+    }
+
+    public static void closeAccount(String accountId) {
+        Database.getInstance().closeAccount(accountId);
     }
 
     /**

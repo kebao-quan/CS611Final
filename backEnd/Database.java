@@ -162,6 +162,17 @@ public class Database implements Serializable {
         persist();
     }
 
+    public void closeAccount(String accountId) {
+        Account account = accounts.get(accountId);
+        String username = account.getUsername();
+        List<Account> userAccountList = userAccounts.get(username);
+        userAccountList.remove(account);
+        accounts.remove(accountId);
+        accountTransactions.remove(accountId);
+        accountStocks.remove(accountId);
+        persist();
+    }
+
     public void addTransaction(String AccountID, Transaction transaction) {
         List<Transaction> accountTransactionsList = accountTransactions.get(AccountID);
         if (accountTransactionsList == null) {
