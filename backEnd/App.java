@@ -59,6 +59,15 @@ public class App {
         return Database.getInstance().getStocks(accountId);
     }
 
+
+
+    /**
+     * Buy the given quantity of the stock from given account ID.
+     * 
+     * @param accountId The ID of the account
+     * @param stock The stock to buy
+     * @param quantity The quantity of the stock to buy
+     */
     public static void accountBuyStock(String accountId, Stock stock, int quantity) {
         Database.getInstance().accountBuyStock(accountId, stock, quantity);
     }

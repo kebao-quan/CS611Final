@@ -55,19 +55,18 @@ public class invest extends JFrame {
             {
 				// gets stock
                 Stock stock = currentUser.getInstance().getStock();
-				String amount = investAmount.getText();
+				String quantityString = investAmount.getText();
 				try {
-					Double.parseDouble(amount);
+					Integer.parseInt(quantityString);
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
-				double amountDouble = Double.parseDouble(amount);
-				if (amountDouble < stock.getPrice()) {
-					JOptionPane.showMessageDialog(null, "Please enter amount that is greater than the stock price", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
+				int quantity = Integer.parseInt(quantityString);
+				if (quantity <= 0) {
+					JOptionPane.showMessageDialog(null, "Invalid Amount", "Invalid Amount", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
-				int quantity = (int) (amountDouble / stock.getPrice());
 				String accountId = currentUser.getInstance().getAccount();
 				App.accountBuyStock(accountId, stock, quantity);
                 // lets user invest in a stock
